@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Page - Sweetheart Factorie</title>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="homepage.html">HOME</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="catalogue.html">CATALOGUE</a></li>
+                <li><a href="order.html">ORDER</a></li>
+                <li><a href="contactpage.html">CONTACT US</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+        <section>
+            <h2>Order Page Heading</h2>
+            <p>Place your order here. We will deliver your order within 3-5 working days.</p>
+        </section>
+            <section class="delivery-info">
+                <h3>Delivery Information</h3>
+                <p><strong>Delivery Time:</strong> 3-5 working days</p>
+                <p><strong>Free Delivery:</strong> On orders above R500</p>
+            </section>
+
+            <form>
+
+                <div>
+                    <label>First Name & Last Name:</label>
+                    <input type="text" name="fullname">
+                </div>
+
+                <div>
+                    <label>Email Address:</label>
+                    <input type="email" name="email">
+                </div>
+
+                <div>
+                    <label>Contact Number:</label>
+                    <input type="tel" name="contact">
+                </div>
+
+                <div>
+                    <label>Estimated Delivery Date:</label>
+                    <input type="date" name="delivery">
+                </div>
+
+                <div>
+                    <h3>Payment Method</h3>
+
+                    <div>
+                        <label>
+                            <input type="radio" name="payment" value="payfast">
+                            Payflex / Pay just now
+                        </label>
+                    </div>
+
+                    <div>
+                        <label>
+                            <input type="radio" name="payment" value="voucher">
+                            Voucher
+                        </label>
+                    </div>
+
+                    <div>
+                        <label>
+                            <input type="radio" name="payment" value="card">
+                            Debit / Credit Card
+                        </label>
+                    </div>
+
+                    <div>
+                        <label>CVV Number:</label>
+                        <input type="text" name="cvv">
+                    </div>
+                </div>
+
+                <div>
+                    <label>Any special instructions:</label><br>
+                    <textarea name="instructions"></textarea>
+                </div>
+
+                <div>
+                    <button type="submit">Place Order</button>
+                </div>
+
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p> Sweetheart Factorie. All rights reserved.</p>
+    </footer>
+</body>
+</html>
