@@ -9,7 +9,7 @@ WEDE520
  Sweetheart Factorie - E-commerce Concept
 Sweetheart Factorie is a dedicated e-commerce platform designed to take the guesswork out of gifting for new mothers and their little ones. Founded in 2020, this business focuses on convenience, care, and a personal touch through high-quality gift sets for newborns and toddlers.
 
- Project Overview?';
+ Project Overviews
  
 This repository contains the front-end development for the Sweetheart Factorie website, transitioning the brand from social-media-only sales to a dedicated online presence.
 • Mission: To provide high-quality, budget-friendly gifts for new mothers with a focus on convenience and care.
