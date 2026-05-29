@@ -58,7 +58,6 @@ The success of the website will be measured using:
 - Product browsing and search
 - Product catalog
 -Contact page
--Promotional specials section
 
 # Design & User Experience
 The website follows a "kid-focused yet professional" aesthetic to ensure trust and ease of use.
@@ -125,6 +124,32 @@ The website follows a "kid-focused yet professional" aesthetic to ensure trust a
 - Responsive design planning
 - README documentation
 -GitHub project setup
+##Part 2 (25-29 May 2026)
+
+### About Page (`about.html`)
+
+* Added responsive owner profile section using Flexbox.
+* Created side-by-side image and text layout with `.person-card`.
+* Added fixed image sizing and fallback styling for missing images.
+* Implemented mobile-responsive breakpoints for tablets and phones.
+* Added image hover effects and fade-in animations.
+* Simplified HTML structure using `.person-block` containers.
+
+### Catalogue Page (`catalogue.html`)
+
+* Fixed text and HTML entity issues.
+* Completed unfinished product information.
+* Improved product descriptions and grammar.
+* Corrected typos and formatting inconsistencies.
+* Removed duplicate closing tags.
+* Updated footer text and styling for consistency.
+
+### Stylesheet Updates (`styles.css`)
+
+* Added `.owner-section` styling.
+* Improved image presentation and responsiveness.
+* Enhanced overall layout consistency across devices.
+
 
 # Design
 -Added wireframe-based page layouts
