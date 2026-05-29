@@ -1,148 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Sweetheart Factorie - Catalogue</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalogue – Sweetheart Factorie</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --beige:#F2EAE0;--pink:#E4A3D4;--pink-light:#f7e6f3;--pink-dark:#c476b0;
+    --charcoal:#263238;--charcoal-mid:#455a64;--white:#ffffff;--soft-white:#fdf9f7;
+    --shadow:0 4px 24px rgba(38,50,56,.10);--shadow-sm:0 2px 8px rgba(38,50,56,.07);
+    --radius:20px;--radius-sm:12px;
+  }
+  html{scroll-behavior:smooth;}
+  body{font-family:'Nunito',sans-serif;background:var(--beige);color:var(--charcoal);font-size:16px;line-height:1.75;overflow-x:hidden;}
+  h1,h2,h3,h4{font-family:'Fredoka',sans-serif;}
+
+ 
+  .bg-bears{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+  .bear{position:absolute;bottom:-180px;opacity:0;animation:floatBear linear infinite;}
+  .bear:nth-child(1){left:4%;animation-duration:18s;animation-delay:0s;width:72px;}
+  .bear:nth-child(2){left:14%;animation-duration:24s;animation-delay:3s;width:52px;}
+  .bear:nth-child(3){left:26%;animation-duration:20s;animation-delay:7s;width:68px;}
+  .bear:nth-child(4){left:38%;animation-duration:16s;animation-delay:1s;width:88px;}
+  .bear:nth-child(5){left:51%;animation-duration:22s;animation-delay:5s;width:48px;}
+  .bear:nth-child(6){left:62%;animation-duration:19s;animation-delay:10s;width:62px;}
+  .bear:nth-child(7){left:73%;animation-duration:25s;animation-delay:2s;width:74px;}
+  .bear:nth-child(8){left:84%;animation-duration:17s;animation-delay:8s;width:56px;}
+  .bear:nth-child(9){left:91%;animation-duration:21s;animation-delay:4s;width:82px;}
+  .bear:nth-child(10){left:32%;animation-duration:23s;animation-delay:12s;width:46px;}
+  @keyframes floatBear{
+    0%{bottom:-180px;opacity:0;transform:translateX(0) rotate(-4deg) scale(.85);}
+    5%{opacity:.15;}50%{transform:translateX(28px) rotate(4deg) scale(1);}
+    80%{opacity:.15;}100%{bottom:110vh;opacity:0;transform:translateX(-18px) rotate(-2deg) scale(.9);}
+  }
+
+ 
+  nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:2px solid var(--pink-light);display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:68px;box-shadow:var(--shadow-sm);}
+  .nav-logo{font-family:'Fredoka',sans-serif;font-size:1.45rem;font-weight:600;color:var(--pink-dark);text-decoration:none;}
+  .nav-logo span{color:var(--charcoal);}
+  .nav-links{display:flex;gap:1.8rem;list-style:none;}
+  .nav-links a{text-decoration:none;color:var(--charcoal-mid);font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:500;padding-bottom:4px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
+  .nav-links a:hover,.nav-links a.active{color:var(--pink-dark);border-bottom-color:var(--pink-dark);}
+  .nav-actions{display:flex;gap:.7rem;}
+  .nav-icon{width:38px;height:38px;border-radius:50%;background:var(--pink-light);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--pink-dark);font-size:1.1rem;transition:background .2s;}
+  .nav-icon:hover{background:var(--pink-dark);color:var(--white);}
+
+ 
+  .page{position:relative;z-index:1;}
+
+ 
+  .page-banner{background:linear-gradient(135deg,#fdf6fb 0%,var(--beige) 55%,#f7e6f3 100%);padding:4rem 6% 3rem;position:relative;overflow:hidden;}
+  .page-banner::after{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:var(--pink-light);opacity:.4;}
+  .page-banner-inner{position:relative;z-index:1;max-width:640px;}
+  .page-tag{display:inline-block;background:var(--pink-light);color:var(--pink-dark);font-family:'Fredoka',sans-serif;font-size:.88rem;font-weight:500;padding:4px 14px;border-radius:50px;margin-bottom:.9rem;letter-spacing:.03em;}
+  .page-banner h1{font-size:clamp(2rem,4vw,3rem);font-weight:600;color:var(--charcoal);margin-bottom:.7rem;}
+  .page-banner p{font-size:1rem;color:var(--charcoal-mid);}
+
+ 
+  .cat-body{padding:3rem 6% 4rem;}
+  .divider{width:44px;height:4px;background:var(--pink-dark);border-radius:4px;margin-bottom:2rem;}
+
+ 
+  .cat-nav{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:2.8rem;}
+  .cat-pill{padding:.42rem 1.25rem;border-radius:50px;font-family:'Fredoka',sans-serif;font-size:.95rem;cursor:pointer;border:2px solid var(--pink-light);background:var(--white);color:var(--charcoal-mid);transition:all .2s;}
+  .cat-pill.active,.cat-pill:hover{background:var(--pink-dark);border-color:var(--pink-dark);color:var(--white);}
+
+ 
+  .cat-label{font-family:'Fredoka',sans-serif;font-size:1.2rem;font-weight:500;color:var(--charcoal-mid);margin:2.2rem 0 1.1rem;padding-left:.6rem;border-left:4px solid var(--pink-dark);}
+
+ 
+  .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1.3rem;margin-bottom:.5rem;}
+  .product-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:all .25s;cursor:pointer;border:1.5px solid transparent;}
+  .product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--pink-light);}
+
+ 
+  .product-img{
+    width:100%;
+    height:200px;          
+    background:var(--pink-light);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:3rem;         
+    color:var(--pink-dark);
+    position:relative;
+    overflow:hidden;
+  }
+ 
+  .product-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;       
+    object-position:center;
+    display:block;
+    transition:transform .35s ease;
+  }
+  .product-card:hover .product-img img{
+    transform:scale(1.05);  
+  }
+  
+  .product-img .emoji-fallback{
+    font-size:3rem;
+  }
+
+  .product-badge{position:absolute;top:10px;left:10px;background:var(--pink-dark);color:var(--white);font-family:'Fredoka',sans-serif;font-size:.72rem;padding:3px 10px;border-radius:50px;z-index:2;}
+  .product-info{padding:.9rem 1rem 1.1rem;}
+  .product-name{font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:500;color:var(--charcoal);margin-bottom:.25rem;}
+  .product-desc{font-size:.83rem;color:var(--charcoal-mid);margin-bottom:.75rem;line-height:1.5;}
+  .product-footer{display:flex;align-items:center;justify-content:space-between;}
+  .product-price{font-family:'Fredoka',sans-serif;font-size:1.05rem;font-weight:600;color:var(--pink-dark);}
+  .add-btn{width:32px;height:32px;border-radius:50%;background:var(--pink-dark);border:none;color:var(--white);font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;line-height:1;}
+  .add-btn:hover{background:#b35f9f;}
+
+  
+  .order-cta{text-align:center;margin-top:3rem;padding:2.5rem;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);border:2px dashed var(--pink-light);}
+  .order-cta p{color:var(--charcoal-mid);margin-bottom:1.2rem;font-size:.97rem;}
+  .btn{display:inline-block;padding:.72rem 1.8rem;border-radius:50px;font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:500;cursor:pointer;transition:all .22s;text-decoration:none;border:none;letter-spacing:.02em;}
+  .btn-primary{background:var(--pink-dark);color:var(--white);box-shadow:0 4px 16px rgba(196,118,176,.35);}
+  .btn-primary:hover{background:#b35f9f;transform:translateY(-2px);}
+
+  
+  footer{background:var(--charcoal);color:rgba(255,255,255,.7);padding:3.5rem 6% 2rem;position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.06);}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem;}
+  .footer-logo{font-family:'Fredoka',sans-serif;font-size:1.35rem;font-weight:600;color:var(--pink);text-decoration:none;}
+  .footer-logo span{color:var(--white);}
+  .footer-tagline{font-size:.85rem;margin-top:.7rem;color:rgba(255,255,255,.45);max-width:240px;line-height:1.65;}
+  .footer-col h4{font-family:'Fredoka',sans-serif;font-size:.98rem;font-weight:500;color:var(--white);margin-bottom:.9rem;}
+  .footer-col ul{list-style:none;}
+  .footer-col li{margin-bottom:.45rem;}
+  .footer-col a{text-decoration:none;color:rgba(255,255,255,.45);font-size:.86rem;transition:color .2s;}
+  .footer-col a:hover{color:var(--pink);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.3rem;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:rgba(255,255,255,.28);}
+  .social-links{display:flex;gap:.6rem;margin-top:1rem;}
+  .social-btn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.07);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);font-size:.95rem;transition:all .2s;text-decoration:none;}
+  .social-btn:hover{background:var(--pink-dark);color:var(--white);}
+
+  
+  @media(max-width:900px){
+    nav{padding:0 5%;}
+    .cat-body{padding:2.5rem 5%;}
+    .page-banner{padding:3rem 5%;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .product-grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));}
+  }
+  @media(max-width:600px){
+    .nav-links{display:none;}
+    .footer-grid{grid-template-columns:1fr;}
+    .product-grid{grid-template-columns:repeat(2,1fr);gap:1rem;}
+    .product-img{height:160px;}
+    .cat-body{padding:2rem 4%;}
+    .page-banner{padding:2.5rem 4%;}
+  }
+  @media(max-width:360px){
+    .product-grid{grid-template-columns:1fr;}
+  }
+</style>
 </head>
 <body>
 
-    <header>
-        <p>Catalogue page:</p>
-        <nav>
-            <ul>
-                <li><a href="homepage.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="catalogue.html">Catalogue</a></li>
-                <li><a href="order.html">Order</a></li>
-                <li><a href="contactpage.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<!-- BEARS -->
+<div class="bg-bears" aria-hidden="true">
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#d4956a"/><circle cx="72" cy="28" r="14" fill="#d4956a"/><circle cx="28" cy="28" r="9" fill="#e8b48a"/><circle cx="72" cy="28" r="9" fill="#e8b48a"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#d4956a"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#e8b48a"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#b06040"/><path d="M45 62 Q50 67 55 62" stroke="#b06040" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#d4956a"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#e8b48a"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#b8c9e8"/><circle cx="72" cy="28" r="14" fill="#b8c9e8"/><circle cx="28" cy="28" r="9" fill="#d0dcf0"/><circle cx="72" cy="28" r="9" fill="#d0dcf0"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#b8c9e8"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#d0dcf0"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#8090c0"/><path d="M45 62 Q50 67 55 62" stroke="#8090c0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#b8c9e8"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#d0dcf0"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#b8c9e8" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#b8c9e8" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#f0b8c8"/><circle cx="72" cy="28" r="14" fill="#f0b8c8"/><circle cx="28" cy="28" r="9" fill="#f8d8e4"/><circle cx="72" cy="28" r="9" fill="#f8d8e4"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#f0b8c8"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#f8d8e4"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#c060a0"/><path d="M45 62 Q50 67 55 62" stroke="#c060a0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#f0b8c8"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#f8d8e4"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#f0b8c8" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#f0b8c8" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#c476b0" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#a03888"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#d4956a"/><circle cx="72" cy="28" r="14" fill="#d4956a"/><circle cx="28" cy="28" r="9" fill="#e8b48a"/><circle cx="72" cy="28" r="9" fill="#e8b48a"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#d4956a"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#e8b48a"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#b06040"/><path d="M45 62 Q50 67 55 62" stroke="#b06040" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#d4956a"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#e8b48a"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#b8c9e8"/><circle cx="72" cy="28" r="14" fill="#b8c9e8"/><circle cx="28" cy="28" r="9" fill="#d0dcf0"/><circle cx="72" cy="28" r="9" fill="#d0dcf0"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#b8c9e8"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#d0dcf0"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#8090c0"/><path d="M45 62 Q50 67 55 62" stroke="#8090c0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#b8c9e8"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#d0dcf0"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#b8c9e8" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#b8c9e8" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#f0b8c8"/><circle cx="72" cy="28" r="14" fill="#f0b8c8"/><circle cx="28" cy="28" r="9" fill="#f8d8e4"/><circle cx="72" cy="28" r="9" fill="#f8d8e4"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#f0b8c8"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#f8d8e4"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#c060a0"/><path d="M45 62 Q50 67 55 62" stroke="#c060a0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#f0b8c8"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#f8d8e4"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#f0b8c8" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#f0b8c8" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#c476b0" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#a03888"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#d4956a"/><circle cx="72" cy="28" r="14" fill="#d4956a"/><circle cx="28" cy="28" r="9" fill="#e8b48a"/><circle cx="72" cy="28" r="9" fill="#e8b48a"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#d4956a"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#e8b48a"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#b06040"/><path d="M45 62 Q50 67 55 62" stroke="#b06040" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#d4956a"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#e8b48a"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#b8c9e8"/><circle cx="72" cy="28" r="14" fill="#b8c9e8"/><circle cx="28" cy="28" r="9" fill="#d0dcf0"/><circle cx="72" cy="28" r="9" fill="#d0dcf0"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#b8c9e8"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#d0dcf0"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#8090c0"/><path d="M45 62 Q50 67 55 62" stroke="#8090c0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#b8c9e8"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#d0dcf0"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#b8c9e8" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#b8c9e8" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#f0b8c8"/><circle cx="72" cy="28" r="14" fill="#f0b8c8"/><circle cx="28" cy="28" r="9" fill="#f8d8e4"/><circle cx="72" cy="28" r="9" fill="#f8d8e4"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#f0b8c8"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#f8d8e4"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#c060a0"/><path d="M45 62 Q50 67 55 62" stroke="#c060a0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#f0b8c8"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#f8d8e4"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#f0b8c8" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#f0b8c8" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#c476b0" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#a03888"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#d4956a"/><circle cx="72" cy="28" r="14" fill="#d4956a"/><circle cx="28" cy="28" r="9" fill="#e8b48a"/><circle cx="72" cy="28" r="9" fill="#e8b48a"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#d4956a"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#e8b48a"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#b06040"/><path d="M45 62 Q50 67 55 62" stroke="#b06040" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#d4956a"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#e8b48a"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+</div>
 
-    <main>
-        <section>
-            <h2>Our Catalogue</h2>
-            <p>All your little loves, needs, in one place.</p>
-        </section>
+<nav>
+  <a class="nav-logo" href="index.html">Sweetheart <span>Factorie</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="catalogue.html" class="active">Catalogue</a></li>
+    <li><a href="order.html">Order</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-icon">🔍</button>
+    <button class="nav-icon">🛒</button>
+  </div>
+</nav>
 
-        <section class="nursery-stuff">
-            <h3>Nursery Stuff</h3>
-            <div class="products">
-                <div class="product-card">
-                    <img src="img/baby-crib-with-mobile-bright-room.jpg" width="100" height="100" alt="Nursery Crib 1">
-                    <h4>Baby Crib with Mobile</h4>
-                    <p class="price">R599.99</p>
-                    <div class="product-controls">
-                        <label for="qty-1">Quantity:</label>
-                        <input type="number" id="qty-1" name="quantity" min="1" value="1">
-                        <button type="button">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="img/download.jpg" width="100" height="100" alt="Nursery Crib 2">
-                    <h4>Soft Nursery Set</h4>
-                    <p class="price">R449.99</p>
-                    <div class="product-controls">
-                        <label for="qty-2">Quantity:</label>
-                        <input type="number" id="qty-2" name="quantity" min="1" value="1">
-                        <button type="button">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="img/download (1).jpg" width="100" height="100" alt="Nursery Crib 3">
-                    <h4>Nursery Organizer</h4>
-                    <p class="price">R299.99</p>
-                    <div class="product-controls">
-                        <label for="qty-3">Quantity:</label>
-                        <input type="number" id="qty-3" name="quantity" min="1" value="1">
-                        <button type="button">Add to Cart</button>
-                    </div>
-                </div>
+<div class="page">
+  <div class="page-banner">
+    <div class="page-banner-inner">
+      <div class="page-tag">🛍️ Browse our range</div>
+      <h1>Catalogue</h1>
+      <p>All your little love's needs, in one place. Browse nursery essentials, toys, cots and prams — all with clear rand pricing.</p>
+    </div>
+  </div>
+
+  <div class="cat-body">
+    <div class="cat-nav">
+      <button class="cat-pill active" onclick="filterCat('all',this)">All</button>
+      <button class="cat-pill" onclick="filterCat('nursery',this)">🛏 Nursery Furniture</button>
+      <button class="cat-pill" onclick="filterCat('toys',this)">🧸 Toys</button>
+      <button class="cat-pill" onclick="filterCat('cots',this)">🛺 Prams, Walkers & Tricycles</button>
+    </div>
+
+  
+    <div class="cat-section" data-cat="nursery">
+      <div class="cat-label">🛏 Nursery Furniture</div>
+      <div class="product-grid">
+
+        
+        <div class="product-card">
+          <div class="product-img">
+            <span class="product-badge">New</span>
+            <img src="img/download (1).jpg" alt="Wooden Crib – Classic"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span class="emoji-fallback" style="display:none">🛏</span>
+          </div>
+          <div class="product-info">
+            <div class="product-name">Baby crib with clouds – Classic</div>
+            <div class="product-desc">Sturdy timber frame with adjustable mattress height, fits standard mattress.</div>
+            <div class="product-footer">
+              <span class="product-price">R 2 499</span>
+              <button class="add-btn">+</button>
             </div>
-        </section>
+          </div>
+        </div>
 
-        <section class="toys">
-            <h3>Toys</h3>
-            <div class="products">
-                <div class="product-card">
-                    <img src="img/amylynbeauty on LTK.jpg" width="100" height="100" alt="Toy 1">
-                    <h4>Colorful Learning Blocks</h4>
-                    <p class="price">R199.99</p>
-                    <div class="product-controls">
-                        <label for="qty-4">Quantity:</label>
-                        <input type="number" id="qty-4" name="quantity" min="1" value="1">
-                        <button type="button">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="img/Just bought Hayden a chalkboard_marker board easel!.jpg" width="100" height="100" alt="Toy 2">
-                    <h4>Chalkboard Easel</h4>
-                    <p class="price">R349.99</p>
-                    <div class="product-controls">
-                        <label for="qty-5">Quantity:</label>
-                        <input type="number" id="qty-5" name="quantity" min="1" value="1">
-                        <button type="button">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="img/Wooden toys 1 2 3 Years__.jpg" width="100" height="100" alt="Toy 3">
-                    <h4>Wooden Toys Set</h4>
-                    <p class="price">R279.99</p>
-                    <div class="product-controls">
-                        <label for="qty-6">Quantity:</label>
-                        <input type="number" id="qty-6" name="quantity" min="1" value="1">
-                        <button type="button">Add to Cart</button>
-                    </div>
-                </div>
+        
+        <div class="product-card">
+          <div class="product-img">
+            <img src="img/download.jpg" alt="Baby crib "
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span class="emoji-fallback" style="display:none">🌙</span>
+          </div>
+          <div class="product-info">
+            <div class="product-name">Baby Crib with Clouds – Budget</div>
+            <div class="product-desc">Budget-friendly, high-quality option for new families.</div>
+            <div class="product-footer">
+              <span class="product-price">R 1000</span>
+              <button class="add-btn">+</button>
             </div>
-        </section>
+          </div>
+        </div>
 
-        <section class="cots-prams">
-            <h3>Cots/Prams</h3>
-            <div class="products">
-                <div class="product-card">
-                    <img src="img/Lifelong Trike Cycle for 2-5 Years - Tricycles for Boy & Girl - Baby Cycle for Kids with 3 EVA Wheels, Bell & Basket -Durable Tricycle with Parental Control 30kg Capacity (Pink & Grey).jpg" width="100" height="100" alt="Cot/Pram 1">
-                    <h4>Tricycle with Parent Control</h4>
-                    <p class="price">R899.99</p>
-                    <div class="product-controls">
-                        <label for="qty-7">Quantity:</label>
-                        <input type="number" id="qty-7" name="quantity" min="1" value="1">
-                        <button type="button">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="img/download (2).jpg" width="100" height="100" alt="Cot/Pram 2">
-                    <h4>Standard Baby Pram</h4>
-                    <p class="price">R1,299.99</p>
-                    <div class="product-controls">
-                        <label for="qty-8">Quantity:</label>
-                        <input type="number" id="qty-8" name="quantity" min="1" value="1">
-                        <button type="button">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="img/download (3).jpg" width="100" height="100" alt="Cot/Pram 3">
-                    <h4>Portable Travel Cot</h4>
-                    <p class="price">R749.99</p>
-                    <div class="product-controls">
-                        <label for="qty-9">Quantity:</label>
-                        <input type="number" id="qty-9" name="quantity" min="1" value="1">
-                        <button type="button">Add to Cart</button>
-                    </div>
-                </div>
+        
+        <div class="product-card">
+          <div class="product-img">
+            <span class="product-badge">Sale</span>
+            <img src="img/baby-crib-with-mobile-bright-room.jpg" alt="Butterfly Crib Set"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span class="emoji-fallback" style="display:none">🌸</span>
+          </div>
+          <div class="product-info">
+            <div class="product-name">Wooden Crib – Classic</div>
+            <div class="product-desc">Sturdy timber frame with adjustable mattress height, fits standard mattress.</div>
+            <div class="product-footer">
+              <span class="product-price">R 1000</span>
+              <button class="add-btn">+</button>
             </div>
-        </section>
+          </div>
+        </div>
 
-        <section>
-            <hr>
-            <a href="order.html">Order here</a>
-        </section>
+      </div>
+    </div>
 
-    </main>
-    
-    <footer>
-        <p>2026 Sweetheart Factory. All rights reserved.</p>
-    </footer>
+  <div class="cat-section" data-cat="toys">
+      <div class="cat-label">🧸 Toys</div>
+      <div class="product-grid">
+ 
+        <div class="product-card">
+          <div class="product-img">
+            <img src="img/Wooden toys 1 2 3 Years__.jpg" alt="Wooden Toys for 1-3 Years"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span class="emoji-fallback" style="display:none">🧸</span>
+          </div>
+          <div class="product-info">
+            <div class="product-name">Wooden Toys for 1-3 Years</div>
+            <div class="product-desc">Perfect for developing fine motor skills.</div>
+            <div class="product-footer">
+              <span class="product-price">R 400</span>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="product-card">
+          <div class="product-img">
+            <span class="product-badge">Popular</span>
+            <img src="img/amylynbeauty on LTK.jpg" alt="Musical Activity Gym"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span class="emoji-fallback" style="display:none">🎶</span>
+          </div>
+          <div class="product-info">
+            <div class="product-name">Musical Activity Gym</div>
+            <div class="product-desc">Develops motor skills with lights, sounds and textures.</div>
+            <div class="product-footer">
+              <span class="product-price">R 500</span>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="product-card">
+          <div class="product-img">
+            <img src="img/Just bought Hayden a chalkboard_marker board easel!.jpg" alt="Chalkboard Easel"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span class="emoji-fallback" style="display:none">🎨</span>
+          </div>
+          <div class="product-info">
+            <div class="product-name">Chalkboard/Marker Board Easel</div>
+            <div class="product-desc">Perfect for encouraging creativity.</div>
+            <div class="product-footer">
+              <span class="product-price">R 600</span>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+ 
+      </div>
+    </div>
+
+    <div class="cat-section" data-cat="cots">
+       <div class="cat-label">🛺 Prams, Walkers & Tricycles</div>
+      <div class="product-grid">
+
+       
+        <div class="product-card">
+          <div class="product-img">
+            <span class="product-badge">Bestseller</span>
+            <img src="img/download (2).jpg" alt="Deluxe Pram Pro"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span class="emoji-fallback" style="display:none">🛺</span>
+          </div>
+          <div class="product-info">
+            <div class="product-name">Deluxe Pram Pro</div>
+            <div class="product-desc">Lightweight frame with reversible seat and sun canopy. Folds flat.</div>
+            <div class="product-footer">
+              <span class="product-price">R 4 999</span>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="product-card">
+          <div class="product-img">
+            <img src="img/download (3).jpg" alt="Baby walking walker"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span class="emoji-fallback" style="display:none">👶</span>
+          </div>
+          <div class="product-info">
+            <div class="product-name">Baby walking walker</div>
+            <div class="product-desc">Perfect for encouraging independent movement.</div>
+            <div class="product-footer">
+              <span class="product-price">R 1 699</span>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="product-card">
+          <div class="product-img">
+            <img src="img/Lifelong Trike Cycle for 2-5 Years - Tricycles for Boy & Girl - Baby Cycle for Kids with 3 EVA Wheels, Bell & Basket -Durable Tricycle with Parental Control 30kg Capacity (Pink & Grey).jpg" alt="Pram + Cot Bundle"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span class="emoji-fallback" style="display:none"></span>
+          </div>
+          <div class="product-info">
+            <div class="product-name">Tricycle</div>
+            <div class="product-desc">Perfect first bike for 2-5 year olds. Safe and durable.</div>
+            <div class="product-footer">
+              <span class="product-price">R 2000</span>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="order-cta">
+      <p>See something you love? Head over to our order page to place your order — we deliver nationwide! 🚚</p>
+      <a href="order.html" class="btn btn-primary">Place Your Order 💌</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a class="footer-logo" href="index.html">Sweetheart <span>Factorie</span></a>
+      <p class="footer-tagline">High quality, budget-friendly gifts for new mothers and toddlers. Delivered with love, nationwide.</p>
+      <div class="social-links">
+        <a class="social-btn" href="#">📘</a>
+        <a class="social-btn" href="#">📸</a>
+        <a class="social-btn" href="#">🐦</a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Shop</h4><ul><li><a href="#">Nursery Stuff</a></li><li><a href="#">Toys</a></li><li><a href="#">Cots & Prams</a></li><li><a href="#">Gift Sets</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="about.html">Our Team</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Help</h4><ul><li><a href="#">Delivery Info</a></li><li><a href="#">Returns</a></li><li><a href="#">FAQ</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Sweetheart Factorie. All rights reserved.</span>
+    <span>Made with 💕 for mommies everywhere.</span>
+  </div>
+</footer>
+
+<script>
+function filterCat(cat, btn) {
+  document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.cat-section').forEach(s => {
+    s.style.display = (cat === 'all' || s.dataset.cat === cat) ? 'block' : 'none';
+  });
+}
+</script>
 </body>
-</html> 
+</html>

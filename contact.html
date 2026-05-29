@@ -1,68 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us - Sweetheart Factorie</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us – Sweetheart Factorie</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --beige:#F2EAE0;--pink:#E4A3D4;--pink-light:#f7e6f3;--pink-dark:#c476b0;
+  --charcoal:#263238;--charcoal-mid:#455a64;--white:#ffffff;--soft-white:#fdf9f7;
+  --shadow:0 4px 24px rgba(38,50,56,.10);--shadow-sm:0 2px 8px rgba(38,50,56,.07);
+  --radius:20px;--radius-sm:12px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;background:var(--beige);color:var(--charcoal);font-size:16px;line-height:1.75;overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Fredoka',sans-serif;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:2px solid var(--pink-light);display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:68px;box-shadow:var(--shadow-sm);}
+.nav-logo{font-family:'Fredoka',sans-serif;font-size:1.45rem;font-weight:600;color:var(--pink-dark);text-decoration:none;}
+.nav-logo span{color:var(--charcoal);}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--charcoal-mid);font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:500;padding-bottom:4px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--pink-dark);border-bottom-color:var(--pink-dark);}
+.nav-actions{display:flex;gap:.7rem;}
+.nav-icon{width:38px;height:38px;border-radius:50%;background:var(--pink-light);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--pink-dark);font-size:1.1rem;transition:background .2s;}
+.nav-icon:hover{background:var(--pink-dark);color:var(--white);}
+
+/* PAGE */
+.page{position:relative;z-index:1;}
+
+/* BANNER */
+.page-banner{background:linear-gradient(135deg,#fdf6fb 0%,var(--beige) 55%,#f7e6f3 100%);padding:4rem 6% 3rem;position:relative;overflow:hidden;}
+.page-banner::after{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:var(--pink-light);opacity:.4;}
+.page-banner-inner{position:relative;z-index:1;max-width:640px;}
+.page-tag{display:inline-block;background:var(--pink-light);color:var(--pink-dark);font-family:'Fredoka',sans-serif;font-size:.88rem;font-weight:500;padding:4px 14px;border-radius:50px;margin-bottom:.9rem;letter-spacing:.03em;}
+.page-banner h1{font-size:clamp(2rem,4vw,3rem);font-weight:600;color:var(--charcoal);margin-bottom:.7rem;}
+.page-banner p{font-size:1rem;color:var(--charcoal-mid);}
+
+/* CONTACT FORM */
+.contact-body{padding:3rem 6% 4rem;}
+.form-section{background:var(--white);border-radius:var(--radius);padding:2rem;margin-bottom:2rem;box-shadow:var(--shadow-sm);}
+.form-section h3{font-size:1.2rem;margin-bottom:1.5rem;color:var(--charcoal);}
+.form-group{margin-bottom:1.5rem;}
+.form-group label{display:block;font-family:'Fredoka',sans-serif;font-weight:500;color:var(--charcoal);margin-bottom:.5rem;}
+.form-group input[type="text"],.form-group input[type="email"],.form-group input[type="tel"],.form-group textarea{width:100%;padding:.75rem;border:1.5px solid var(--pink-light);border-radius:var(--radius-sm);font-family:'Nunito',sans-serif;font-size:1rem;transition:border-color .2s;}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--pink-dark);}
+.form-group textarea{resize:vertical;min-height:120px;}
+.btn{display:inline-block;padding:.72rem 1.8rem;border-radius:50px;font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:500;cursor:pointer;transition:all .22s;text-decoration:none;border:none;letter-spacing:.02em;}
+.btn-primary{background:var(--pink-dark);color:var(--white);box-shadow:0 4px 16px rgba(196,118,176,.35);}
+.btn-primary:hover{background:#b35f9f;transform:translateY(-2px);}
+
+/* FOOTER */
+footer{background:var(--charcoal);color:rgba(255,255,255,.7);padding:3.5rem 6% 2rem;position:relative;z-index:1;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem;}
+.footer-logo{font-family:'Fredoka',sans-serif;font-size:1.35rem;font-weight:600;color:var(--pink);text-decoration:none;}
+.footer-logo span{color:var(--white);}
+.footer-tagline{font-size:.85rem;margin-top:.7rem;color:rgba(255,255,255,.45);max-width:240px;line-height:1.65;}
+.footer-col h4{font-family:'Fredoka',sans-serif;font-size:.98rem;font-weight:500;color:var(--white);margin-bottom:.9rem;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:.45rem;}
+.footer-col a{text-decoration:none;color:rgba(255,255,255,.45);font-size:.86rem;transition:color .2s;}
+.footer-col a:hover{color:var(--pink);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.3rem;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:rgba(255,255,255,.28);}
+.social-links{display:flex;gap:.6rem;margin-top:1rem;}
+.social-btn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.07);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);font-size:.95rem;transition:all .2s;text-decoration:none;}
+.social-btn:hover{background:var(--pink-dark);color:var(--white);}
+
+@media(max-width:900px){nav{padding:0 5%;}.contact-body{padding:2.5rem 5%;}.page-banner{padding:3rem 5%;}.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.nav-links{display:none;}.footer-grid{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="homepage.html">HOME PAGE</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="catalogue.html">CATALOGUE</a></li>
-                <li><a href="order.html">ORDER</a></li>
-                <li><a href="contactpage.html">CONTACT US</a></li>
-            </ul>
-        </nav>
-    </header>
+<nav>
+  <a class="nav-logo" href="index.html">Sweetheart <span>Factorie</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="catalogue.html">Catalogue</a></li>
+    <li><a href="order.html">Order</a></li>
+    <li><a href="contact.html" class="active">Contact Us</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-icon">🔍</button>
+    <button class="nav-icon">🛒</button>
+  </div>
+</nav>
 
-    <main>
+<div class="page">
+  <div class="page-banner">
+    <div class="page-banner-inner">
+      <div class="page-tag">💌 Get in touch</div>
+      <h1>Contact Us</h1>
+      <p>Have a question? We'd love to hear from you! Fill out the form below and we'll get back to you as soon as possible.</p>
+    </div>
+  </div>
 
-        <section id="contact-section">
+  <div class="contact-body">
+    <div class="form-section">
+      <h3>Send us a message</h3>
+      <form action="#" onsubmit="return false;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="email@example.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" placeholder="What is this about?">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Type your message here..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </div>
+  </div>
+</div>
 
-            <div class="contact-container">
-
-                <h2>Contact Us:</h2>
-
-                <form action="#" method="post">
-
-                    <div class="form-group">
-                        <label for="fullname">Name & Surname:</label>
-                        <input type="text" id="fullname" name="fullname">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="subject">Subject:</label>
-                        <input type="text" id="subject" name="subject">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message"></textarea>
-                    </div>
-
-                    <button type="submit">Contact Us</button>
-
-                </form>
-
-            </div>
-
-
-        </section>
-
-    </main>
-
-    <footer>
-        <p>Sweetheart Factorie . All rights reserved.</p>
-    </footer>
-
-</body>
-</html>
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <a class="footer-logo" href="index.html">Sweetheart <span>Factorie</span></a>
+      <p class="footer-tagline">Crafting sweet moments with every design. Quality treats for every occasion.</p>
+      <div class="social-links">
+        <button class="social-btn">IG</button>
+        <button class="social-btn">FB</button>
+        <button class="social-btn">TW</button>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Best Sellers</a></li>
+        <li><a href="#">Gift Cards</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Returns</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>

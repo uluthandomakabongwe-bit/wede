@@ -3,102 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Page - Sweetheart Factorie</title>
+    <title>Order – Sweetheart Factorie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --beige:#F2EAE0;--pink:#E4A3D4;--pink-light:#f7e6f3;--pink-dark:#c476b0;
+  --charcoal:#263238;--charcoal-mid:#455a64;--white:#ffffff;--soft-white:#fdf9f7;
+  --shadow:0 4px 24px rgba(38,50,56,.10);--shadow-sm:0 2px 8px rgba(38,50,56,.07);
+  --radius:20px;--radius-sm:12px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;background:var(--beige);color:var(--charcoal);font-size:16px;line-height:1.75;overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Fredoka',sans-serif;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:2px solid var(--pink-light);display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:68px;box-shadow:var(--shadow-sm);}
+.nav-logo{font-family:'Fredoka',sans-serif;font-size:1.45rem;font-weight:600;color:var(--pink-dark);text-decoration:none;}
+.nav-logo span{color:var(--charcoal);}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--charcoal-mid);font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:500;padding-bottom:4px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--pink-dark);border-bottom-color:var(--pink-dark);}
+.nav-actions{display:flex;gap:.7rem;}
+.nav-icon{width:38px;height:38px;border-radius:50%;background:var(--pink-light);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--pink-dark);font-size:1.1rem;transition:background .2s;}
+.nav-icon:hover{background:var(--pink-dark);color:var(--white);}
+
+/* PAGE */
+.page{position:relative;z-index:1;}
+
+/* BANNER */
+.page-banner{background:linear-gradient(135deg,#fdf6fb 0%,var(--beige) 55%,#f7e6f3 100%);padding:4rem 6% 3rem;position:relative;overflow:hidden;}
+.page-banner::after{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:var(--pink-light);opacity:.4;}
+.page-banner-inner{position:relative;z-index:1;max-width:640px;}
+.page-tag{display:inline-block;background:var(--pink-light);color:var(--pink-dark);font-family:'Fredoka',sans-serif;font-size:.88rem;font-weight:500;padding:4px 14px;border-radius:50px;margin-bottom:.9rem;letter-spacing:.03em;}
+.page-banner h1{font-size:clamp(2rem,4vw,3rem);font-weight:600;color:var(--charcoal);margin-bottom:.7rem;}
+.page-banner p{font-size:1rem;color:var(--charcoal-mid);}
+
+/* ORDER FORM */
+.order-body{padding:3rem 6% 4rem;}
+.form-section{background:var(--white);border-radius:var(--radius);padding:2rem;margin-bottom:2rem;box-shadow:var(--shadow-sm);}
+.form-section h3{font-size:1.2rem;margin-bottom:1.5rem;color:var(--charcoal);}
+.form-group{margin-bottom:1.5rem;}
+.form-group label{display:block;font-family:'Fredoka',sans-serif;font-weight:500;color:var(--charcoal);margin-bottom:.5rem;}
+.form-group input[type="text"],.form-group input[type="email"],.form-group input[type="tel"],.form-group input[type="date"],.form-group textarea{width:100%;padding:.75rem;border:1.5px solid var(--pink-light);border-radius:var(--radius-sm);font-family:'Nunito',sans-serif;font-size:1rem;transition:border-color .2s;}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--pink-dark);}
+.form-group textarea{resize:vertical;min-height:120px;}
+.radio-group{display:flex;flex-direction:column;gap:.8rem;}
+.radio-group label{display:flex;align-items:center;gap:.6rem;margin-bottom:0;}
+.radio-group input[type="radio"]{width:18px;height:18px;cursor:pointer;}
+.btn{display:inline-block;padding:.72rem 1.8rem;border-radius:50px;font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:500;cursor:pointer;transition:all .22s;text-decoration:none;border:none;letter-spacing:.02em;}
+.btn-primary{background:var(--pink-dark);color:var(--white);box-shadow:0 4px 16px rgba(196,118,176,.35);}
+.btn-primary:hover{background:#b35f9f;transform:translateY(-2px);}
+
+/* FOOTER */
+footer{background:var(--charcoal);color:rgba(255,255,255,.7);padding:3.5rem 6% 2rem;position:relative;z-index:1;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem;}
+.footer-logo{font-family:'Fredoka',sans-serif;font-size:1.35rem;font-weight:600;color:var(--pink);text-decoration:none;}
+.footer-logo span{color:var(--white);}
+.footer-tagline{font-size:.85rem;margin-top:.7rem;color:rgba(255,255,255,.45);max-width:240px;line-height:1.65;}
+.footer-col h4{font-family:'Fredoka',sans-serif;font-size:.98rem;font-weight:500;color:var(--white);margin-bottom:.9rem;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:.45rem;}
+.footer-col a{text-decoration:none;color:rgba(255,255,255,.45);font-size:.86rem;transition:color .2s;}
+.footer-col a:hover{color:var(--pink);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.3rem;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:rgba(255,255,255,.28);}
+.social-links{display:flex;gap:.6rem;margin-top:1rem;}
+.social-btn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.07);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);font-size:.95rem;transition:all .2s;text-decoration:none;}
+.social-btn:hover{background:var(--pink-dark);color:var(--white);}
+
+@media(max-width:900px){nav{padding:0 5%;}.order-body{padding:2.5rem 5%;}.page-banner{padding:3rem 5%;}.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.nav-links{display:none;}.footer-grid{grid-template-columns:1fr;}}
+    </style>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="homepage.html">HOME</a></li>
-                <li><a href="about.html">ABOUT US</a></li>
-                <li><a href="catalogue.html">CATALOGUE</a></li>
-                <li><a href="order.html">ORDER</a></li>
-                <li><a href="contactpage.html">CONTACT US</a></li>
-            </ul>
-        </nav>
-    </header>
+<nav>
+  <a class="nav-logo" href="index.html">Sweetheart <span>Factorie</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="catalogue.html">Catalogue</a></li>
+    <li><a href="order.html" class="active">Order</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-icon">🔍</button>
+    <button class="nav-icon">🛒</button>
+  </div>
+</nav>
 
-    <hr>
+<div class="page">
+  <div class="page-banner">
+    <div class="page-banner-inner">
+      <div class="page-tag">🛍️ Complete your order</div>
+      <h1>Place Your Order</h1>
+      <p>Fill in your details below and we'll get your precious gifts delivered to your door within 3-5 working days.</p>
+    </div>
+  </div>
 
-    <main>
-        <section>
-            <h2>Order Page Heading</h2>
-            <p>Place your order here. We will deliver your order within 3-5 working days.</p>
-        </section>
-            <section class="delivery-info">
-                <h3>Delivery Information</h3>
-                <p><strong>Delivery Time:</strong> 3-5 working days</p>
-                <p><strong>Free Delivery:</strong> On orders above R500</p>
-            </section>
+  <div class="order-body">
+    <form>    <form>
+      <div class="form-section">
+        <h3>Your Details</h3>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" name="fullname" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label>Contact Number</label>
+          <input type="tel" name="contact" required>
+        </div>
+      </div>
 
-            <form>
+      <div class="form-section">
+        <h3>Delivery Information</h3>
+        <p style="color:var(--charcoal-mid);margin-bottom:1.5rem;"><strong>Free Delivery:</strong> On orders above R500 • <strong>Delivery Time:</strong> 3-5 working days</p>
+        <div class="form-group">
+          <label>Preferred Delivery Date</label>
+          <input type="date" name="delivery" required>
+        </div>
+      </div>
 
-                <div>
-                    <label>First Name & Last Name:</label>
-                    <input type="text" name="fullname">
-                </div>
+      <div class="form-section">
+        <h3>Payment Method</h3>
+        <div class="form-group radio-group">
+          <label>
+            <input type="radio" name="payment" value="payfast" required>
+            PayFlex / Pay Just Now
+          </label>
+          <label>
+            <input type="radio" name="payment" value="voucher">
+            Voucher
+          </label>
+          <label>
+            <input type="radio" name="payment" value="card">
+            Debit / Credit Card
+          </label>
+        </div>
+      </div>
 
-                <div>
-                    <label>Email Address:</label>
-                    <input type="email" name="email">
-                </div>
+      <div class="form-section">
+        <h3>Special Instructions</h3>
+        <div class="form-group">
+          <label>Any special requests or gift messages</label>
+          <textarea name="instructions" placeholder="e.g., Please wrap as a gift, add a personal note, etc."></textarea>
+        </div>
+      </div>
 
-                <div>
-                    <label>Contact Number:</label>
-                    <input type="tel" name="contact">
-                </div>
+      <div style="text-align:center;">
+        <button type="submit" class="btn btn-primary">Complete Order 💌</button>
+      </div>
+    </form>
+  </div>
+</div>
 
-                <div>
-                    <label>Estimated Delivery Date:</label>
-                    <input type="date" name="delivery">
-                </div>
-
-                <div>
-                    <h3>Payment Method</h3>
-
-                    <div>
-                        <label>
-                            <input type="radio" name="payment" value="payfast">
-                            Payflex / Pay just now
-                        </label>
-                    </div>
-
-                    <div>
-                        <label>
-                            <input type="radio" name="payment" value="voucher">
-                            Voucher
-                        </label>
-                    </div>
-
-                    <div>
-                        <label>
-                            <input type="radio" name="payment" value="card">
-                            Debit / Credit Card
-                        </label>
-                    </div>
-
-                    <div>
-                        <label>CVV Number:</label>
-                        <input type="text" name="cvv">
-                    </div>
-                </div>
-
-                <div>
-                    <label>Any special instructions:</label><br>
-                    <textarea name="instructions"></textarea>
-                </div>
-
-                <div>
-                    <button type="submit">Place Order</button>
-                </div>
-
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <p> Sweetheart Factorie. All rights reserved.</p>
-    </footer>
+<footer>
+  <div class="footer-grid">
+    <div><a class="footer-logo" href="index.html">Sweetheart <span>Factorie</span></a><p class="footer-tagline">High quality, budget-friendly gifts for new mothers and toddlers. Delivered with love, nationwide.</p><div class="social-links"><a class="social-btn" href="#">📘</a><a class="social-btn" href="#">📸</a><a class="social-btn" href="#">🐦</a></div></div>
+    <div class="footer-col"><h4>Shop</h4><ul><li><a href="#">Nursery Stuff</a></li><li><a href="#">Toys</a></li><li><a href="#">Cots &amp; Prams</a></li><li><a href="#">Gift Sets</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="about.html">Our Team</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Help</h4><ul><li><a href="#">Delivery Info</a></li><li><a href="#">Returns</a></li><li><a href="#">FAQ</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Sweetheart Factorie. All rights reserved.</span><span>Made with 💕 for mommies everywhere.</span></div>
+</footer>
 </body>
 </html>

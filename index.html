@@ -1,79 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sweetheart Factorie</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweetheart Factorie – Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --beige: #F2EAE0;
+    --pink: #E4A3D4;
+    --pink-light: #f7e6f3;
+    --pink-dark: #c476b0;
+    --charcoal: #263238;
+    --charcoal-mid: #455a64;
+    --white: #ffffff;
+    --soft-white: #fdf9f7;
+    --shadow: 0 4px 24px rgba(38,50,56,0.10);
+    --shadow-sm: 0 2px 8px rgba(38,50,56,0.07);
+    --radius: 20px;
+    --radius-sm: 12px;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--beige);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+  h1,h2,h3,h4 { font-family: 'Fredoka', sans-serif; }
+
+  /* ── FLOATING BEARS ── */
+  .bg-bears {
+    position: fixed; inset: 0; z-index: 0;
+    pointer-events: none; overflow: hidden;
+  }
+  .bear {
+    position: absolute; bottom: -180px; opacity: 0;
+    animation: floatBear linear infinite;
+  }
+  .bear:nth-child(1)  { left:4%;   animation-duration:18s; animation-delay:0s;   width:72px; }
+  .bear:nth-child(2)  { left:14%;  animation-duration:24s; animation-delay:3s;   width:52px; }
+  .bear:nth-child(3)  { left:26%;  animation-duration:20s; animation-delay:7s;   width:68px; }
+  .bear:nth-child(4)  { left:38%;  animation-duration:16s; animation-delay:1s;   width:88px; }
+  .bear:nth-child(5)  { left:51%;  animation-duration:22s; animation-delay:5s;   width:48px; }
+  .bear:nth-child(6)  { left:62%;  animation-duration:19s; animation-delay:10s;  width:62px; }
+  .bear:nth-child(7)  { left:73%;  animation-duration:25s; animation-delay:2s;   width:74px; }
+  .bear:nth-child(8)  { left:84%;  animation-duration:17s; animation-delay:8s;   width:56px; }
+  .bear:nth-child(9)  { left:91%;  animation-duration:21s; animation-delay:4s;   width:82px; }
+  .bear:nth-child(10) { left:32%;  animation-duration:23s; animation-delay:12s;  width:46px; }
+  @keyframes floatBear {
+    0%   { bottom:-180px; opacity:0;    transform:translateX(0) rotate(-4deg) scale(0.85); }
+    5%   { opacity:0.15; }
+    50%  { transform:translateX(28px) rotate(4deg) scale(1); }
+    80%  { opacity:0.15; }
+    100% { bottom:110vh; opacity:0;    transform:translateX(-18px) rotate(-2deg) scale(0.9); }
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--white);
+    border-bottom: 2px solid var(--pink-light);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 6%; height: 68px;
+    box-shadow: var(--shadow-sm);
+  }
+  .nav-logo {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.45rem; font-weight: 600;
+    color: var(--pink-dark); text-decoration: none;
+  }
+  .nav-logo span { color: var(--charcoal); }
+  .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--charcoal-mid);
+    font-family: 'Fredoka', sans-serif; font-size: 1rem; font-weight: 500;
+    padding-bottom: 4px; border-bottom: 2px solid transparent;
+    transition: color .2s, border-color .2s;
+  }
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--pink-dark); border-bottom-color: var(--pink-dark);
+  }
+  .nav-actions { display: flex; gap: .7rem; }
+  .nav-icon {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--pink-light); border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--pink-dark); font-size: 1.1rem; transition: background .2s;
+  }
+  .nav-icon:hover { background: var(--pink-dark); color: var(--white); }
+
+  /* ── PAGE CONTENT ── */
+  .page { position: relative; z-index: 1; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg,#fdf6fb 0%,var(--beige) 55%,#f7e6f3 100%);
+    padding: 5rem 6% 4rem;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 3rem; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; top:-80px; right:-80px;
+    width:380px; height:380px; border-radius:50%;
+    background:var(--pink-light); opacity:.45;
+  }
+  .hero-tag {
+    display:inline-block; background:var(--pink-light);
+    color:var(--pink-dark); font-family:'Fredoka',sans-serif;
+    font-size:.92rem; font-weight:500; padding:5px 16px;
+    border-radius:50px; margin-bottom:1rem; letter-spacing:.03em;
+  }
+  .hero h1 {
+    font-size: clamp(2rem,4vw,3.2rem); font-weight:600;
+    line-height:1.15; color:var(--charcoal); margin-bottom:1rem;
+  }
+  .hero h1 em { font-style:normal; color:var(--pink-dark); }
+  .hero p {
+    font-size:1rem; color:var(--charcoal-mid);
+    max-width:440px; margin-bottom:1.6rem;
+  }
+  .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+  .btn {
+    display:inline-block; padding:.72rem 1.8rem; border-radius:50px;
+    font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:500;
+    cursor:pointer; transition:all .22s; text-decoration:none; border:none;
+    letter-spacing:.02em;
+  }
+  .btn-primary {
+    background:var(--pink-dark); color:var(--white);
+    box-shadow:0 4px 16px rgba(196,118,176,.35);
+  }
+  .btn-primary:hover { background:#b35f9f; transform:translateY(-2px); }
+  .btn-outline {
+    background:transparent; color:var(--charcoal);
+    border:2px solid var(--charcoal);
+  }
+  .btn-outline:hover { background:var(--charcoal); color:var(--white); transform:translateY(-2px); }
+
+  /* hero visual cards */
+  .hero-visual {
+    display:grid; grid-template-columns:1fr 1fr;
+    grid-template-rows:auto auto; gap:1rem; position:relative; z-index:1;
+  }
+  .hero-card {
+    background:var(--white); border-radius:var(--radius);
+    overflow:hidden; box-shadow:var(--shadow);
+    transition:transform .25s;
+  }
+  .hero-card:hover { transform:translateY(-4px); }
+  .hero-card-large { grid-column:1/2; grid-row:1/3; }
+  .img-ph {
+    width:100%; height:200px;
+    background:var(--pink-light);
+    display:flex; align-items:center; justify-content:center;
+    font-size:3rem; color:var(--pink-dark);
+  }
+  .hero-card-large .img-ph { height:320px; }
+  .card-lbl {
+    padding:.65rem 1rem;
+    font-family:'Fredoka',sans-serif; font-size:.9rem;
+    font-weight:500; color:var(--charcoal);
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding:4.5rem 6%; }
+  .section-tag {
+    display:block; font-family:'Fredoka',sans-serif;
+    font-size:.88rem; font-weight:500; color:var(--pink-dark);
+    letter-spacing:.06em; text-transform:uppercase; margin-bottom:.5rem;
+  }
+  .section-title {
+    font-size:clamp(1.6rem,2.8vw,2.3rem); font-weight:600;
+    color:var(--charcoal); margin-bottom:.5rem; line-height:1.2;
+  }
+  .section-sub { color:var(--charcoal-mid); max-width:520px; margin-bottom:2rem; }
+  .divider {
+    width:44px; height:4px; background:var(--pink-dark);
+    border-radius:4px; margin-bottom:2rem;
+  }
+
+  /* ── BUSINESS INFO ── */
+  .business-section { background:var(--soft-white); }
+  .business-grid {
+    display:grid; grid-template-columns:1.1fr 1fr; gap:3rem; align-items:start;
+  }
+  .business-text p {
+    color:var(--charcoal-mid); margin-bottom:1.1rem; font-size:.97rem;
+  }
+  .business-text a { color:var(--pink-dark); font-weight:600; text-decoration:none; }
+  .business-text a:hover { text-decoration:underline; }
+
+  /* what you'll find cards */
+  .find-cards { display:flex; flex-direction:column; gap:.9rem; }
+  .find-card {
+    background:var(--white); border-radius:var(--radius-sm);
+    padding:1.1rem 1.3rem; box-shadow:var(--shadow-sm);
+    display:flex; gap:1rem; align-items:flex-start;
+    border-left:4px solid var(--pink-light); transition:border-color .2s;
+  }
+  .find-card:hover { border-left-color:var(--pink-dark); }
+  .find-icon {
+    width:40px; height:40px; flex-shrink:0; border-radius:10px;
+    background:var(--pink-light); display:flex; align-items:center;
+    justify-content:center; font-size:1.2rem; color:var(--pink-dark);
+  }
+  .find-card h4 {
+    font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:500;
+    color:var(--charcoal); margin-bottom:.2rem;
+  }
+  .find-card p { font-size:.87rem; color:var(--charcoal-mid); line-height:1.55; }
+
+  /* ── REVIEWS ── */
+  .reviews-section { background:var(--beige); }
+  .reviews-grid {
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:1.3rem;
+  }
+  .review-card {
+    background:var(--white); border-radius:var(--radius);
+    padding:1.7rem 1.4rem; box-shadow:var(--shadow-sm);
+    border-top:4px solid var(--pink-light); transition:box-shadow .2s;
+  }
+  .review-card:hover { box-shadow:var(--shadow); }
+  .review-stars { color:#f5a623; font-size:.95rem; letter-spacing:2px; margin-bottom:.7rem; }
+  .review-text {
+    font-size:.9rem; color:var(--charcoal-mid); line-height:1.65;
+    margin-bottom:1rem; font-style:italic;
+  }
+  .review-author { display:flex; align-items:center; gap:10px; }
+  .review-av {
+    width:36px; height:36px; border-radius:50%; background:var(--pink-light);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fredoka',sans-serif; font-weight:600; font-size:.82rem;
+    color:var(--pink-dark); flex-shrink:0;
+  }
+  .review-name { font-family:'Fredoka',sans-serif; font-weight:500; font-size:.9rem; color:var(--charcoal); }
+  .review-loc { font-size:.78rem; color:var(--charcoal-mid); }
+
+  
+  footer {
+    background:var(--charcoal); color:rgba(255,255,255,.7);
+    padding:3.5rem 6% 2rem; position:relative; z-index:1;
+  }
+  .footer-grid {
+    display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:2rem; margin-bottom:2.5rem;
+  }
+  .footer-logo { font-family:'Fredoka',sans-serif; font-size:1.35rem; font-weight:600; color:var(--pink); text-decoration:none; }
+  .footer-logo span { color:var(--white); }
+  .footer-tagline { font-size:.85rem; margin-top:.7rem; color:rgba(255,255,255,.45); max-width:240px; line-height:1.65; }
+  .footer-col h4 { font-family:'Fredoka',sans-serif; font-size:.98rem; font-weight:500; color:var(--white); margin-bottom:.9rem; }
+  .footer-col ul { list-style:none; }
+  .footer-col li { margin-bottom:.45rem; }
+  .footer-col a { text-decoration:none; color:rgba(255,255,255,.45); font-size:.86rem; transition:color .2s; }
+  .footer-col a:hover { color:var(--pink); }
+  .footer-bottom {
+    border-top:1px solid rgba(255,255,255,.08); padding-top:1.3rem;
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:.8rem; color:rgba(255,255,255,.28);
+  }
+  .social-links { display:flex; gap:.6rem; margin-top:1rem; }
+  .social-btn {
+    width:34px; height:34px; border-radius:50%;
+    background:rgba(255,255,255,.07); border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    color:rgba(255,255,255,.45); font-size:.95rem; transition:all .2s; text-decoration:none;
+  }
+  .social-btn:hover { background:var(--pink-dark); color:var(--white); }
+
+  
+  @media(max-width:900px){
+    .hero { grid-template-columns:1fr; padding:3rem 5%; }
+    .hero-visual { display:none; }
+    .business-grid { grid-template-columns:1fr; }
+    .footer-grid { grid-template-columns:1fr 1fr; }
+    nav { padding:0 5%; }
+  }
+  @media(max-width:600px){
+    .nav-links { display:none; }
+    .footer-grid { grid-template-columns:1fr; }
+  }
+
+  
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(24px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .hero-tag  { animation:fadeUp .5s .1s both; }
+  .hero h1   { animation:fadeUp .5s .2s both; }
+  .hero p    { animation:fadeUp .5s .3s both; }
+  .hero-btns { animation:fadeUp .5s .4s both; }
+</style>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="homepage.html">HOME PAGE</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="catalogue.html">CATALOGUE</a></li>
-                <li><a href="order.html">ORDER</a></li>
-                <li><a href="contactpage.html">CONTACT US</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="welcome">
-        <div class="welcome-message">
-            <h2>All your little loves needs, in one place!</h2>
+<div class="bg-bears" aria-hidden="true">
+
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#d4956a"/><circle cx="72" cy="28" r="14" fill="#d4956a"/><circle cx="28" cy="28" r="9" fill="#e8b48a"/><circle cx="72" cy="28" r="9" fill="#e8b48a"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#d4956a"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#e8b48a"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#b06040"/><path d="M45 62 Q50 67 55 62" stroke="#b06040" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#d4956a"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#e8b48a"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+ 
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#b8c9e8"/><circle cx="72" cy="28" r="14" fill="#b8c9e8"/><circle cx="28" cy="28" r="9" fill="#d0dcf0"/><circle cx="72" cy="28" r="9" fill="#d0dcf0"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#b8c9e8"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#d0dcf0"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#8090c0"/><path d="M45 62 Q50 67 55 62" stroke="#8090c0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#b8c9e8"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#d0dcf0"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#b8c9e8" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#b8c9e8" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+ 
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#f0b8c8"/><circle cx="72" cy="28" r="14" fill="#f0b8c8"/><circle cx="28" cy="28" r="9" fill="#f8d8e4"/><circle cx="72" cy="28" r="9" fill="#f8d8e4"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#f0b8c8"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#f8d8e4"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#c060a0"/><path d="M45 62 Q50 67 55 62" stroke="#c060a0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#f0b8c8"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#f8d8e4"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#f0b8c8" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#f0b8c8" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#c476b0" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#a03888"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#d4956a"/><circle cx="72" cy="28" r="14" fill="#d4956a"/><circle cx="28" cy="28" r="9" fill="#e8b48a"/><circle cx="72" cy="28" r="9" fill="#e8b48a"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#d4956a"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#e8b48a"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#b06040"/><path d="M45 62 Q50 67 55 62" stroke="#b06040" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#d4956a"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#e8b48a"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#b8c9e8"/><circle cx="72" cy="28" r="14" fill="#b8c9e8"/><circle cx="28" cy="28" r="9" fill="#d0dcf0"/><circle cx="72" cy="28" r="9" fill="#d0dcf0"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#b8c9e8"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#d0dcf0"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#8090c0"/><path d="M45 62 Q50 67 55 62" stroke="#8090c0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#b8c9e8"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#d0dcf0"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#b8c9e8" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#b8c9e8" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#f0b8c8"/><circle cx="72" cy="28" r="14" fill="#f0b8c8"/><circle cx="28" cy="28" r="9" fill="#f8d8e4"/><circle cx="72" cy="28" r="9" fill="#f8d8e4"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#f0b8c8"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#f8d8e4"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#c060a0"/><path d="M45 62 Q50 67 55 62" stroke="#c060a0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#f0b8c8"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#f8d8e4"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#f0b8c8" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#f0b8c8" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#c476b0" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#a03888"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#d4956a"/><circle cx="72" cy="28" r="14" fill="#d4956a"/><circle cx="28" cy="28" r="9" fill="#e8b48a"/><circle cx="72" cy="28" r="9" fill="#e8b48a"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#d4956a"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#e8b48a"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#b06040"/><path d="M45 62 Q50 67 55 62" stroke="#b06040" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#d4956a"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#e8b48a"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#b8c9e8"/><circle cx="72" cy="28" r="14" fill="#b8c9e8"/><circle cx="28" cy="28" r="9" fill="#d0dcf0"/><circle cx="72" cy="28" r="9" fill="#d0dcf0"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#b8c9e8"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#d0dcf0"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#8090c0"/><path d="M45 62 Q50 67 55 62" stroke="#8090c0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#b8c9e8"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#d0dcf0"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#b8c9e8" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#b8c9e8" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#f0b8c8"/><circle cx="72" cy="28" r="14" fill="#f0b8c8"/><circle cx="28" cy="28" r="9" fill="#f8d8e4"/><circle cx="72" cy="28" r="9" fill="#f8d8e4"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#f0b8c8"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#f8d8e4"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#c060a0"/><path d="M45 62 Q50 67 55 62" stroke="#c060a0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#f0b8c8"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#f8d8e4"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#f0b8c8" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#f0b8c8" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#c476b0" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#a03888"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#d4956a"/><circle cx="72" cy="28" r="14" fill="#d4956a"/><circle cx="28" cy="28" r="9" fill="#e8b48a"/><circle cx="72" cy="28" r="9" fill="#e8b48a"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#d4956a"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#e8b48a"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#b06040"/><path d="M45 62 Q50 67 55 62" stroke="#b06040" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#d4956a"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#e8b48a"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+</div>
+
+
+<nav>
+  <a class="nav-logo" href="index.html">Sweetheart <span>Factorie</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="catalogue.html">Catalogue</a></li>
+    <li><a href="order.html">Order</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-icon">🔍</button>
+    <button class="nav-icon">🛒</button>
+  </div>
+</nav>
+
+<div class="page">
+
+  
+  <div class="hero">
+    <div>
+      <div class="hero-tag">✨ Gifts for little loves</div>
+      <h1>Everything your little loved ones <em>need</em>, in one place.</h1>
+      <p>Sweetheart Factorie is a South African gifting brand built around families with babies and young children — thoughtful, practical gifts with a bit of heart.</p>
+      <div class="hero-btns">
+        <a href="catalogue.html" class="btn btn-primary">Shop the Catalogue</a>
+        <a href="about.html" class="btn btn-outline">About Us</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card hero-card-large">
+        <div class="img-ph" style="height:320px;">🧸</div>
+        <div class="card-lbl">Toys</div>
+      </div>
+      <div class="hero-card">
+        <div class="img-ph">🍼</div>
+        <div class="card-lbl">Nursery Cribs</div>
+      </div>
+      <div class="hero-card">
+        <div class="img-ph">🛺</div>
+        <div class="card-lbl">Prams, Walkers & Tricycles</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OUR BUSINESS -->
+  <section class="business-section">
+    <span class="section-tag">Our Business</span>
+    <h2 class="section-title">What we're all about</h2>
+    <div class="divider"></div>
+    <div class="business-grid">
+      <div class="business-text">
+        <p>Sweetheart Factorie is a South African gifting brand built around families with babies and young children. We started from a simple idea: take the stress out of finding presents that feel thoughtful and are still practical, whether you are shopping for your own child, a niece or nephew, or a friend who has just had a baby.</p>
+        <p>We bring together nursery essentials, toys, and gear such as cots and prams, with clear pricing in rand and an eye on value. Our focus is on mums and carers who are short on time but still want quality and a bit of heart in what they give.</p>
+        <p>You can read more about how we began, our mission, and the people behind the brand on the <a href="about.html">about us</a> page.</p>
+      </div>
+      <div class="find-cards">
+        <div class="find-card">
+          <div class="find-icon">📦</div>
+          <div>
+            <h4>Catalogue</h4>
+            <p>Browse products grouped by type — nursery, toys, and cots or prams — with descriptions and prices so you can compare at your own pace.</p>
+          </div>
         </div>
-    </section>
+        <div class="find-card">
+          <div class="find-icon">🛒</div>
+          <div>
+            <h4>Ordering</h4>
+            <p>Use the order section to send your details, preferred delivery timing, and payment choice. Delivery info and free delivery thresholds explained there too.</p>
+          </div>
+        </div>
+        <div class="find-card">
+          <div class="find-icon">💬</div>
+          <div>
+            <h4>Contact</h4>
+            <p>Questions about stock, sizing, or delivery to your area? Reach us through the contact form. We aim to respond within a couple of working days.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <main>
+  <!-- REVIEWS -->
+  <section class="reviews-section">
+    <span class="section-tag">Happy Customers</span>
+    <h2 class="section-title">What our customers say 💕</h2>
+    <p class="section-sub">Real reviews from real families across South Africa.</p>
+    <div class="divider"></div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Wonderful products and great service!"</p>
+        <div class="review-author">
+          <div class="review-av">NM</div>
+          <div>
+            <div class="review-name">Nomsa</div>
+            <div class="review-loc">Johannesburg</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Great quality and our parcel arrived quickly."</p>
+        <div class="review-author">
+          <div class="review-av">DC</div>
+          <div>
+            <div class="review-name">David</div>
+            <div class="review-loc">Cape Town</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Helpful team and delivery was on time."</p>
+        <div class="review-author">
+          <div class="review-av">LD</div>
+          <div>
+            <div class="review-name">Lerato</div>
+            <div class="review-loc">Durban</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        
-        <section id="showcase">
-            <div class="showcase-container">
-                <div class="showcase-content">
-                    <div class="gallery-images">
-                        <img src="img/medium-shot-people-celebrating-christmas.jpg" width="100" height="100" alt="Christmas celebration">
-                    </div>
-                    <hr>
-                    <a href="catalogue.html">Browse Catalogue</a>
-                </div>
+</div><!-- end .page -->
 
-                <aside class="side-image">
-                    <img src="img/fluffy-toy-texture-close-up.jpg" width="200" height="200" alt="Fluffy toy">
-                </aside>
-            </div>
-        </section>
-
-        <section id="reviews">
-
-            <h2>Reviews</h2>
-
-            <div class="review-container">
-
-                <article class="review-card">
-                    <h3>Review 1</h3>
-                    <p>Wonderful products and great customer service!</p>
-                </article>
-
-                <article class="review-card">
-                    <h3>Review 2</h3>
-                    <p>Great quality and fast shipping!</p>
-                </article>
-
-                <article class="review-card">
-                    <h3>Review 3</h3>
-                    <p>Excellent customer support and timely delivery.</p>
-                </article>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer>
-        <p>2026 Sweetheart Factorie. All rights reserved.</p>
-    </footer>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a class="footer-logo" href="index.html">Sweetheart <span>Factorie</span></a>
+      <p class="footer-tagline">High quality, budget-friendly gifts for new mothers and toddlers. Delivered with love, nationwide.</p>
+      <div class="social-links">
+        <a class="social-btn" href="#">📘</a>
+        <a class="social-btn" href="#">📸</a>
+        <a class="social-btn" href="#">🐦</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="catalogue.html">Nursery Stuff</a></li>
+        <li><a href="catalogue.html">Toys</a></li>
+        <li><a href="catalogue.html">Cots &amp; Prams</a></li>
+        <li><a href="catalogue.html">Gift Sets</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="about.html">Our Team</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <ul>
+        <li><a href="#">Delivery Info</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Sweetheart Factorie. All rights reserved.</span>
+    <span>Made with 💕 for mommies everywhere.</span>
+  </div>
+</footer>
 
 </body>
 </html>
