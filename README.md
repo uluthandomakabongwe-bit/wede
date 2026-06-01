@@ -82,6 +82,52 @@ The website follows a "kid-focused yet professional" aesthetic to ensure trust a
 28 - sumbit project
 
 
+##Website Overview
+
+The Sweetheart Factorie website consists of five main sections, each designed to meet specific customer needs and enhance the overall user experience.
+
+1. Homepage (index.html)
+
+The homepage serves as the digital storefront of Sweetheart Factorie. It features attractive hero imagery showcasing the brand, a brief introduction to the restaurant, and prominent call-to-action buttons that allow visitors to quickly view the menu or place an online order. The page also includes a comprehensive navigation menu and footer containing essential contact information.
+
+2. About Us (about.html)
+
+The About Us page shares the story of Sweetheart Factorie, highlighting the company’s journey since its establishment in 2020. It outlines the business’s mission and vision, provides background information about the company, and helps customers connect with the brand’s values and objectives.
+
+3. Catalogue (Catalogue.html)
+
+The Catalogue page provides detailed information about the restaurant’s products and menu items. Products are organised into categories for easy navigation, with each item displaying a description and price to help customers make informed purchasing decisions.
+
+4. Contact Us (contact.html)
+
+The Contact page offers multiple communication channels for customers. It includes a contact form for enquiries, telephone number, and email address. Detailed business operating hours are also provided to ensure customers can easily determine when services are available.
+
+5. Online Ordering (order.html)
+
+The Online Ordering page enables customers to place orders directly through the website. It includes a menu selection interface, shopping cart functionality, and a customer information form that collects the details required to process and complete orders efficiently.
+
+##Core Functionality
+
+Mobile Responsiveness
+
+The website is fully responsive and adapts seamlessly to different screen sizes, including smartphones, tablets, and desktop computers, ensuring an optimal user experience across all devices.
+
+Shopping Cart System
+
+Customers can add multiple items to their shopping cart, adjust item quantities, remove products if necessary, and review their order before finalising the purchase.
+
+Location Integration
+
+Integration with Google Maps and Apple Maps provides accurate location details and driving directions, making it easy for customers to find the restaurant.
+
+Communication Tools
+
+The website includes contact forms that allow customers to submit enquiries directly. Social media integration also connects visitors to Sweetheart Factorie’s broader online presence and engagement channels.
+
+User Experience Optimisation
+
+The website prioritises simplicity, accessibility, and efficiency. Users can quickly access menu information and complete orders with minimal clicks. The design maintains consistent branding, high colour contrast for readability, and an intuitive navigation structure throughout all pages.
+
 # SITEMAP /project structure
 
 ├── index.html          # Homepage with hero slider and featured promos
