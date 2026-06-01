@@ -75,14 +75,8 @@ The website follows a "kid-focused yet professional" aesthetic to ensure trust a
 • CSS3: Custom styling featuring Flexbox/Grid for the responsive catalog.
 • Images: Sourced from FreePik to maintain high-quality visual standards.# wede
 
-# Timeline 
-6 April - start of project and research 
-9-15 - content planning
-15-26 - HTML foundation
-28 - sumbit project
 
-
-##Website Overview
+#Website Overview
 
 The Sweetheart Factorie website consists of five main sections, each designed to meet specific customer needs and enhance the overall user experience.
 
@@ -106,7 +100,7 @@ The Contact page offers multiple communication channels for customers. It includ
 
 The Online Ordering page enables customers to place orders directly through the website. It includes a menu selection interface, shopping cart functionality, and a customer information form that collects the details required to process and complete orders efficiently.
 
-##Core Functionality
+#Core Functionality
 
 Mobile Responsiveness
 
@@ -116,9 +110,6 @@ Shopping Cart System
 
 Customers can add multiple items to their shopping cart, adjust item quantities, remove products if necessary, and review their order before finalising the purchase.
 
-Location Integration
-
-Integration with Google Maps and Apple Maps provides accurate location details and driving directions, making it easy for customers to find the restaurant.
 
 Communication Tools
 
@@ -127,6 +118,16 @@ The website includes contact forms that allow customers to submit enquiries dire
 User Experience Optimisation
 
 The website prioritises simplicity, accessibility, and efficiency. Users can quickly access menu information and complete orders with minimal clicks. The design maintains consistent branding, high colour contrast for readability, and an intuitive navigation structure throughout all pages.
+
+
+
+# Timeline 
+6 April - start of project and research 
+9-15 - content planning
+15-26 - HTML foundation
+28 - sumbit project
+
+
 
 # SITEMAP /project structure
 
