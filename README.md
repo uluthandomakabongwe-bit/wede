@@ -59,24 +59,7 @@ The success of the website will be measured using:
 - Product catalog
 -Contact page
 
-# Design & User Experience
-The website follows a "kid-focused yet professional" aesthetic to ensure trust and ease of use.
-• Color Palette:
-• Background: Beige (#F2EAE0) — Harmonious and neutral.
-• Primary: Orchid Pink (#E4A3D4) — Energetic, playful, and friendly.
-• Text: Charcoal Black (#263238) — High contrast for optimal readability.
-• Typography:
-• Headings: Quicksand or Fredoka for a friendly, rounded feel.
-• Body: Open Sans, Lato, or Nunito for clean readability.
-• Layout: A neat grid layout for product browsing with a "sticky" navigation bar for quick access to the cart and search.
-
-# technincal requirments: 
-• HTML5: Semantic structure for SEO and accessibility.
-• CSS3: Custom styling featuring Flexbox/Grid for the responsive catalog.
-• Images: Sourced from FreePik to maintain high-quality visual standards.# wede
-
-
-#Website Overview
+# Website Overview
 
 The Sweetheart Factorie website consists of five main sections, each designed to meet specific customer needs and enhance the overall user experience.
 
@@ -100,7 +83,7 @@ The Contact page offers multiple communication channels for customers. It includ
 
 The Online Ordering page enables customers to place orders directly through the website. It includes a menu selection interface, shopping cart functionality, and a customer information form that collects the details required to process and complete orders efficiently.
 
-#Core Functionality
+# Core Functionality
 
 Mobile Responsiveness
 
@@ -120,6 +103,25 @@ User Experience Optimisation
 The website prioritises simplicity, accessibility, and efficiency. Users can quickly access menu information and complete orders with minimal clicks. The design maintains consistent branding, high colour contrast for readability, and an intuitive navigation structure throughout all pages.
 
 
+# Design & User Experience
+The website follows a "kid-focused yet professional" aesthetic to ensure trust and ease of use.
+• Color Palette:
+• Background: Beige (#F2EAE0) — Harmonious and neutral.
+• Primary: Orchid Pink (#E4A3D4) — Energetic, playful, and friendly.
+• Text: Charcoal Black (#263238) — High contrast for optimal readability.
+• Typography:
+• Headings: Quicksand or Fredoka for a friendly, rounded feel.
+• Body: Open Sans, Lato, or Nunito for clean readability.
+• Layout: A neat grid layout for product browsing with a "sticky" navigation bar for quick access to the cart and search.
+
+# technincal requirments: 
+• HTML5: Semantic structure for SEO and accessibility.
+• CSS3: Custom styling featuring Flexbox/Grid for the responsive catalog.
+• Images: Sourced from FreePik to maintain high-quality visual standards.# wede
+
+
+
+
 
 # Timeline 
 6 April - start of project and research 
@@ -127,6 +129,55 @@ The website prioritises simplicity, accessibility, and efficiency. Users can qui
 15-26 - HTML foundation
 28 - sumbit project
 
+Part 2 timelime(25-29 May)
+Development Timeline
+
+Phase 1: CSS Foundation and Setup
+
+ Created an external CSS stylesheet (css/style.css) and linked it to all HTML pages.
+ Implemented a CSS reset to ensure consistent rendering across different web browsers.
+  Established the website typography using Google Fonts:
+     Playfair Display for headings.
+     Open Sans for body text.
+ Defined the website colour palette:
+     Primary Colour: Orchid Pink (#E4A3D4)
+      Secondary Colour: Beige (#F2EAE0)
+      Text Colour: Charcoal Black (#263238)
+  Applied default styling for consistent fonts, spacing, and layout throughout the website.
+
+Phase 2: Responsive Design Implementation
+
+ Implemented responsive design using media queries for multiple screen sizes:
+     Desktop: 1200px and above
+     Tablet: 768px – 1199px
+     Mobile: 320px – 767px
+  Created a responsive navigation menu that adapts to smaller screen sizes.
+  Optimised images for different devices and resolutions.
+  Adjusted typography scales to improve readability across all screen sizes.
+  Modified grid and content layouts to stack appropriately on tablets and mobile devices.
+
+Phase 3: Component Styling
+
+ Styled all major website components, including:
+    Headers
+    Main content sections
+     Footers
+ Applied consistent branding across all pages.
+ Added visual enhancements such as:
+     Background colours
+      Borders
+      Box shadows
+      Padding and spacing adjustments
+
+Phase 4: Navigation and User Experience Enhancements
+
+ Developed a responsive navigation system with interactive hover effects.
+ Improved usability and accessibility across devices.
+ Ensured consistent visual presentation and user experience throughout the website.
+ Refined layouts and styling based on responsive testing.
+
+phase 5:
+Submitted on the 29th of May
 
 
 # SITEMAP /project structure
@@ -171,7 +222,8 @@ The website prioritises simplicity, accessibility, and efficiency. Users can qui
 - Responsive design planning
 - README documentation
 -GitHub project setup
-##Part 2 (25-29 May 2026)
+
+## Part 2 (25-29 May 2026)
 
 ### About Page (`about.html`)
 
@@ -202,15 +254,14 @@ The website prioritises simplicity, accessibility, and efficiency. Users can qui
 -Added wireframe-based page layouts
 -Planned mobile-friendly interface
 
-# Technical
--Created HTML page skeletons
+
 
 # Reference list: 
  
 Afrihost,2026. Domains[Online]. Avaliable at:https://www.afrihost.com/domains.[Accessed on 12 April 2026].
 
-Sweetheart Factorie,2026.Interview with Owners Regarding Business Operations and Website Needs. Conducted by UM shongwe,07April 2026
-
 ColorHunt,n.d. Color Palettes for Designers and Artists.[Online]. Avaliable at: https://colorhunt.co.[Accessed on 12 April 2026] 
 
 FreePik,n.d.images.[Online].Available at: https://www.freepik.com. [Accessed on 12  April 2026]
+
+Sweetheart Factorie,2026.Interview with Owners Regarding Business Operations and Website Needs. Conducted by UM shongwe,07April 2026
