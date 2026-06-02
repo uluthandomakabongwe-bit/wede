@@ -249,10 +249,18 @@ Submitted on the 29th of May
 * Improved image presentation and responsiveness.
 * Enhanced overall layout consistency across devices.
 
-
 # Design
 -Added wireframe-based page layouts
 -Planned mobile-friendly interface
+
+# Responsiveness testing iteration across devices
+
+# laptop and desktop
+<img width="1366" height="728" alt="image" src="https://github.com/user-attachments/assets/9ae0aace-023d-4f8f-a72a-fe34c86d35af" />
+<img width="1355" height="724" alt="image" src="https://github.com/user-attachments/assets/fe596efa-d63b-409a-a721-7e3929293309" />
+
+# Mobile
+<img width="585" height="1266" alt="IMG_5940" src="https://github.com/user-attachments/assets/1f584604-4d1b-46f2-890e-9bec3ac3a561" />
 
 
 
