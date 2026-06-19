@@ -98,6 +98,57 @@ Communication Tools
 
 The website includes contact forms that allow customers to submit enquiries directly. Social media integration also connects visitors to Sweetheart Factorie’s broader online presence and engagement channels.
 
+# Changelog
+
+## [1.0.1] - 2026-06-19
+
+### Fixed
+- **Git Merge Conflicts Resolution**
+  - Resolved merge conflicts in `contact.html` (CSS and footer sections)
+  - Resolved merge conflicts in `order.html` (CSS styling)
+  - Resolved merge conflicts in `about.html` (whitespace in section markup)
+  - Resolved merge conflicts in `index.html` (CSS styling)
+
+- **CSS & Styling**
+  - Cleaned up duplicate and conflicting CSS rules across all page files
+  - Ensured consistent styling for navigation, forms, and footer components
+  - Fixed banner, footer grid, and responsive layout declarations
+
+- **HTML Structure**
+  - Verified and corrected footer markup on contact and order pages
+  - Ensured proper closure of HTML tags and structure
+  - Validated form elements and FAQs
+
+### Verified
+- ✅ All pages render without errors
+- ✅ Form validation logic functioning (contact form, order form)
+- ✅ FAQ accordion functionality operational
+- ✅ Cart management system working correctly
+- ✅ Responsive design intact across all breakpoints
+- ✅ Navigation links consistent across all pages
+- ✅ SEO meta tags present on all pages
+
+### Technical Details
+- **Branch**: main
+- **Reviewed Files**: 5 HTML files, 1 CSS file, 1 JavaScript file
+- **Build Status**: All merge conflicts resolved ✅
+- **Testing**: Code review completed, no syntax errors
+
+---
+
+## [1.0.0] - 2026-01-30
+
+### Initial Release
+- Launched Sweetheart Factorie website with core functionality
+- Implemented responsive design for mobile, tablet, and desktop
+- Created product catalog with search and filter capabilities
+- Built contact and order pages with form validation
+- Added FAQ accordion on contact page
+- Implemented cart system with localStorage persistence
+- Designed animated background elements (floating bears)
+- Integrated Google Fonts (Fredoka, Nunito)
+- Added social media links and footer navigation
+- Implemented mobile hamburger menu support
 User Experience Optimisation
 
 The website prioritises simplicity, accessibility, and efficiency. Users can quickly access menu information and complete orders with minimal clicks. The design maintains consistent branding, high colour contrast for readability, and an intuitive navigation structure throughout all pages.
