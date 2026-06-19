@@ -67,6 +67,27 @@
   /* CONTACT BODY */
   .contact-body{padding:3.5rem 6% 4rem;}
   .contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:3rem;align-items:start;}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--pink-dark);}
+.form-group textarea{resize:vertical;min-height:120px;}
+.btn{display:inline-block;padding:.72rem 1.8rem;border-radius:50px;font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:500;cursor:pointer;transition:all .22s;text-decoration:none;border:none;letter-spacing:.02em;}
+.btn-primary{background:var(--pink-dark);color:var(--white);box-shadow:0 4px 16px rgba(196,118,176,.35);}
+.btn-primary:hover{background:#b35f9f;transform:translateY(-2px);}
+
+
+footer{background:var(--charcoal);color:rgba(255,255,255,.7);padding:3.5rem 6% 2rem;position:relative;z-index:1;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem;}
+.footer-logo{font-family:'Fredoka',sans-serif;font-size:1.35rem;font-weight:600;color:var(--pink);text-decoration:none;}
+.footer-logo span{color:var(--white);}
+.footer-tagline{font-size:.85rem;margin-top:.7rem;color:rgba(255,255,255,.45);max-width:240px;line-height:1.65;}
+.footer-col h4{font-family:'Fredoka',sans-serif;font-size:.98rem;font-weight:500;color:var(--white);margin-bottom:.9rem;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:.45rem;}
+.footer-col a{text-decoration:none;color:rgba(255,255,255,.45);font-size:.86rem;transition:color .2s;}
+.footer-col a:hover{color:var(--pink);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.3rem;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:rgba(255,255,255,.28);}
+.social-links{display:flex;gap:.6rem;margin-top:1rem;}
+.social-btn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.07);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);font-size:.95rem;transition:all .2s;text-decoration:none;}
+.social-btn:hover{background:var(--pink-dark);color:var(--white);}
 
   /* DETAILS SIDE */
   .detail-card{background:var(--white);border-radius:var(--radius);padding:2rem 1.8rem;box-shadow:var(--shadow-sm);margin-bottom:1.4rem;}
@@ -378,5 +399,36 @@ function toggleFaq(btn) {
   }
 }
 </script>
+</body>
+</html>
+=======
+    <div class="footer-col">
+      <a class="footer-logo" href="index.html">Sweetheart <span>Factorie</span></a>
+      <p class="footer-tagline">Crafting sweet moments with every design. Quality treats for every occasion.</p>
+      <div class="social-links">
+        <button class="social-btn">IG</button>
+        <button class="social-btn">FB</button>
+        <button class="social-btn">TW</button>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Best Sellers</a></li>
+        <li><a href="#">Gift Cards</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Returns</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

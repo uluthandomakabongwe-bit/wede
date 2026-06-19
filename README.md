@@ -58,7 +58,50 @@ The success of the website will be measured using:
 - Product browsing and search
 - Product catalog
 -Contact page
--Promotional specials section
+
+# Website Overview
+
+The Sweetheart Factorie website consists of five main sections, each designed to meet specific customer needs and enhance the overall user experience.
+
+1. Homepage (index.html)
+
+The homepage serves as the digital storefront of Sweetheart Factorie. It features attractive hero imagery showcasing the brand, a brief introduction to the restaurant, and prominent call-to-action buttons that allow visitors to quickly view the menu or place an online order. The page also includes a comprehensive navigation menu and footer containing essential contact information.
+
+2. About Us (about.html)
+
+The About Us page shares the story of Sweetheart Factorie, highlighting the company’s journey since its establishment in 2020. It outlines the business’s mission and vision, provides background information about the company, and helps customers connect with the brand’s values and objectives.
+
+3. Catalogue (Catalogue.html)
+
+The Catalogue page provides detailed information about the restaurant’s products and menu items. Products are organised into categories for easy navigation, with each item displaying a description and price to help customers make informed purchasing decisions.
+
+4. Contact Us (contact.html)
+
+The Contact page offers multiple communication channels for customers. It includes a contact form for enquiries, telephone number, and email address. Detailed business operating hours are also provided to ensure customers can easily determine when services are available.
+
+5. Online Ordering (order.html)
+
+The Online Ordering page enables customers to place orders directly through the website. It includes a menu selection interface, shopping cart functionality, and a customer information form that collects the details required to process and complete orders efficiently.
+
+# Core Functionality
+
+Mobile Responsiveness
+
+The website is fully responsive and adapts seamlessly to different screen sizes, including smartphones, tablets, and desktop computers, ensuring an optimal user experience across all devices.
+
+Shopping Cart System
+
+Customers can add multiple items to their shopping cart, adjust item quantities, remove products if necessary, and review their order before finalising the purchase.
+
+
+Communication Tools
+
+The website includes contact forms that allow customers to submit enquiries directly. Social media integration also connects visitors to Sweetheart Factorie’s broader online presence and engagement channels.
+
+User Experience Optimisation
+
+The website prioritises simplicity, accessibility, and efficiency. Users can quickly access menu information and complete orders with minimal clicks. The design maintains consistent branding, high colour contrast for readability, and an intuitive navigation structure throughout all pages.
+
 
 # Design & User Experience
 The website follows a "kid-focused yet professional" aesthetic to ensure trust and ease of use.
@@ -76,11 +119,65 @@ The website follows a "kid-focused yet professional" aesthetic to ensure trust a
 • CSS3: Custom styling featuring Flexbox/Grid for the responsive catalog.
 • Images: Sourced from FreePik to maintain high-quality visual standards.# wede
 
+
+
+
+
 # Timeline 
 6 April - start of project and research 
 9-15 - content planning
 15-26 - HTML foundation
 28 - sumbit project
+
+Part 2 timelime(25-29 May)
+Development Timeline
+
+Phase 1: CSS Foundation and Setup
+
+ Created an external CSS stylesheet (css/style.css) and linked it to all HTML pages.
+ Implemented a CSS reset to ensure consistent rendering across different web browsers.
+  Established the website typography using Google Fonts:
+     Playfair Display for headings.
+     Open Sans for body text.
+ Defined the website colour palette:
+     Primary Colour: Orchid Pink (#E4A3D4)
+      Secondary Colour: Beige (#F2EAE0)
+      Text Colour: Charcoal Black (#263238)
+  Applied default styling for consistent fonts, spacing, and layout throughout the website.
+
+Phase 2: Responsive Design Implementation
+
+ Implemented responsive design using media queries for multiple screen sizes:
+     Desktop: 1200px and above
+     Tablet: 768px – 1199px
+     Mobile: 320px – 767px
+  Created a responsive navigation menu that adapts to smaller screen sizes.
+  Optimised images for different devices and resolutions.
+  Adjusted typography scales to improve readability across all screen sizes.
+  Modified grid and content layouts to stack appropriately on tablets and mobile devices.
+
+Phase 3: Component Styling
+
+ Styled all major website components, including:
+    Headers
+    Main content sections
+     Footers
+ Applied consistent branding across all pages.
+ Added visual enhancements such as:
+     Background colours
+      Borders
+      Box shadows
+      Padding and spacing adjustments
+
+Phase 4: Navigation and User Experience Enhancements
+
+ Developed a responsive navigation system with interactive hover effects.
+ Improved usability and accessibility across devices.
+ Ensured consistent visual presentation and user experience throughout the website.
+ Refined layouts and styling based on responsive testing.
+
+phase 5:
+Submitted on the 29th of May
 
 
 # SITEMAP /project structure
@@ -126,19 +223,53 @@ The website follows a "kid-focused yet professional" aesthetic to ensure trust a
 - README documentation
 -GitHub project setup
 
+## Part 2 (25-29 May 2026)
+
+### About Page (`about.html`)
+
+* Added responsive owner profile section using Flexbox.
+* Created side-by-side image and text layout with `.person-card`.
+* Added fixed image sizing and fallback styling for missing images.
+* Implemented mobile-responsive breakpoints for tablets and phones.
+* Added image hover effects and fade-in animations.
+* Simplified HTML structure using `.person-block` containers.
+
+### Catalogue Page (`catalogue.html`)
+
+* Fixed text and HTML entity issues.
+* Completed unfinished product information.
+* Improved product descriptions and grammar.
+* Corrected typos and formatting inconsistencies.
+* Removed duplicate closing tags.
+* Updated footer text and styling for consistency.
+
+### Stylesheet Updates (`styles.css`)
+
+* Added `.owner-section` styling.
+* Improved image presentation and responsiveness.
+* Enhanced overall layout consistency across devices.
+
 # Design
 -Added wireframe-based page layouts
 -Planned mobile-friendly interface
 
-# Technical
--Created HTML page skeletons
+# Responsiveness testing iteration across devices
+
+# laptop and desktop
+<img width="1366" height="728" alt="image" src="https://github.com/user-attachments/assets/9ae0aace-023d-4f8f-a72a-fe34c86d35af" />
+<img width="1355" height="724" alt="image" src="https://github.com/user-attachments/assets/fe596efa-d63b-409a-a721-7e3929293309" />
+
+# Mobile
+<img width="585" height="1266" alt="IMG_5940" src="https://github.com/user-attachments/assets/1f584604-4d1b-46f2-890e-9bec3ac3a561" />
+
+
 
 # Reference list: 
  
 Afrihost,2026. Domains[Online]. Avaliable at:https://www.afrihost.com/domains.[Accessed on 12 April 2026].
 
-Sweetheart Factorie,2026.Interview with Owners Regarding Business Operations and Website Needs. Conducted by UM shongwe,07April 2026
-
 ColorHunt,n.d. Color Palettes for Designers and Artists.[Online]. Avaliable at: https://colorhunt.co.[Accessed on 12 April 2026] 
 
 FreePik,n.d.images.[Online].Available at: https://www.freepik.com. [Accessed on 12  April 2026]
+
+Sweetheart Factorie,2026.Interview with Owners Regarding Business Operations and Website Needs. Conducted by UM shongwe,07April 2026
