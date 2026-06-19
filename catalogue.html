@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Catalogue – Sweetheart Factorie</title>
+<title>Catalogue | Baby Toys, Cots, Prams & Nursery Essentials – Sweetheart Factorie</title>
+<meta name="description" content="Browse Sweetheart Factorie's catalogue of nursery essentials, toys, cots and prams with clear rand pricing. Search and filter products easily, delivered nationwide.">
+<meta name="keywords" content="baby toys for sale, baby prams South Africa, baby cots, nursery essentials, crib sets, baby gift catalogue">
+<link rel="canonical" href="https://www.sweetheartfactorie.co.za/catalogue.html">
+<meta property="og:title" content="Sweetheart Factorie Catalogue – Toys, Cots & Prams">
+<meta property="og:description" content="Browse nursery essentials, toys, cots and prams with clear rand pricing.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -17,7 +24,7 @@
   body{font-family:'Nunito',sans-serif;background:var(--beige);color:var(--charcoal);font-size:16px;line-height:1.75;overflow-x:hidden;}
   h1,h2,h3,h4{font-family:'Fredoka',sans-serif;}
 
- 
+  /* BEARS */
   .bg-bears{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
   .bear{position:absolute;bottom:-180px;opacity:0;animation:floatBear linear infinite;}
   .bear:nth-child(1){left:4%;animation-duration:18s;animation-delay:0s;width:72px;}
@@ -36,21 +43,124 @@
     80%{opacity:.15;}100%{bottom:110vh;opacity:0;transform:translateX(-18px) rotate(-2deg) scale(.9);}
   }
 
- 
+  /* NAV */
   nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:2px solid var(--pink-light);display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:68px;box-shadow:var(--shadow-sm);}
   .nav-logo{font-family:'Fredoka',sans-serif;font-size:1.45rem;font-weight:600;color:var(--pink-dark);text-decoration:none;}
   .nav-logo span{color:var(--charcoal);}
   .nav-links{display:flex;gap:1.8rem;list-style:none;}
   .nav-links a{text-decoration:none;color:var(--charcoal-mid);font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:500;padding-bottom:4px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
   .nav-links a:hover,.nav-links a.active{color:var(--pink-dark);border-bottom-color:var(--pink-dark);}
-  .nav-actions{display:flex;gap:.7rem;}
-  .nav-icon{width:38px;height:38px;border-radius:50%;background:var(--pink-light);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--pink-dark);font-size:1.1rem;transition:background .2s;}
+  .nav-actions{display:flex;gap:.7rem;position:relative;}
+  .nav-icon{width:38px;height:38px;border-radius:50%;background:var(--pink-light);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--pink-dark);font-size:1.1rem;transition:background .2s;position:relative;}
   .nav-icon:hover{background:var(--pink-dark);color:var(--white);}
 
- 
+  /* CART BADGE */
+  .cart-badge{
+    position:absolute;top:-6px;right:-6px;
+    background:var(--charcoal);color:var(--white);
+    font-family:'Fredoka',sans-serif;font-size:.65rem;font-weight:600;
+    min-width:18px;height:18px;border-radius:50%;
+    display:none;align-items:center;justify-content:center;padding:0 3px;
+    pointer-events:none;
+  }
+  .cart-badge.visible{display:flex;}
+
+  /* SEARCH DROPDOWN */
+  .search-panel{position:absolute;top:54px;right:48px;width:300px;background:var(--white);border-radius:var(--radius-sm);box-shadow:var(--shadow);padding:1rem;display:none;z-index:200;}
+  .search-panel.open{display:block;}
+  .search-panel input{width:100%;padding:.6rem .9rem;border:2px solid var(--pink-light);border-radius:50px;font-family:'Nunito',sans-serif;font-size:.92rem;outline:none;}
+  .search-panel input:focus{border-color:var(--pink-dark);}
+  .search-results{margin-top:.7rem;max-height:280px;overflow-y:auto;}
+  .search-result-item{display:flex;align-items:center;gap:.6rem;padding:.5rem .3rem;border-radius:8px;cursor:pointer;text-decoration:none;color:var(--charcoal);}
+  .search-result-item:hover{background:var(--pink-light);}
+  .search-result-item img{width:36px;height:36px;border-radius:6px;object-fit:cover;flex-shrink:0;background:var(--pink-light);}
+  .sr-name{font-size:.85rem;font-weight:500;}
+  .sr-price{font-size:.78rem;color:var(--pink-dark);font-family:'Fredoka',sans-serif;}
+  .search-empty{font-size:.83rem;color:var(--charcoal-mid);padding:.5rem .3rem;}
+
+  /* CART DROPDOWN PANEL */
+  .cart-panel{
+    position:absolute;top:54px;right:0;width:330px;
+    background:var(--white);border-radius:var(--radius-sm);
+    box-shadow:var(--shadow);padding:1.2rem;
+    display:none;z-index:200;
+  }
+  .cart-panel.open{display:block;}
+  .cart-panel-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.9rem;}
+  .cart-panel-header h4{font-family:'Fredoka',sans-serif;font-size:1.05rem;color:var(--charcoal);}
+  .cart-clear-btn{background:none;border:none;font-size:.78rem;color:var(--charcoal-mid);cursor:pointer;font-family:'Nunito',sans-serif;}
+  .cart-clear-btn:hover{color:var(--pink-dark);}
+
+  .cart-items-list{max-height:280px;overflow-y:auto;margin-bottom:.8rem;}
+
+  /* CART ITEM ROW */
+  .cart-item-row{
+    display:flex;align-items:center;gap:.7rem;
+    padding:.6rem 0;border-bottom:1px solid var(--pink-light);
+  }
+  .cart-item-row:last-child{border-bottom:none;}
+  .cart-item-thumb{
+    width:44px;height:44px;border-radius:8px;
+    object-fit:cover;flex-shrink:0;background:var(--pink-light);
+  }
+  .cart-item-thumb-emoji{
+    width:44px;height:44px;border-radius:8px;
+    background:var(--pink-light);flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:1.4rem;
+  }
+  .cart-item-details{flex:1;min-width:0;}
+  .cart-item-title{font-size:.82rem;font-weight:600;color:var(--charcoal);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .cart-item-subtotal{font-size:.78rem;color:var(--pink-dark);font-family:'Fredoka',sans-serif;}
+
+  /* QTY CONTROLS */
+  .cart-qty-controls{display:flex;align-items:center;gap:.3rem;margin-top:.3rem;}
+  .qty-btn{
+    width:22px;height:22px;border-radius:50%;border:1.5px solid var(--pink-light);
+    background:var(--white);color:var(--charcoal-mid);font-size:.85rem;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:all .15s;line-height:1;padding:0;
+  }
+  .qty-btn:hover{background:var(--pink-dark);border-color:var(--pink-dark);color:var(--white);}
+  .qty-num{font-family:'Fredoka',sans-serif;font-size:.88rem;min-width:20px;text-align:center;color:var(--charcoal);}
+  .remove-btn{
+    background:none;border:none;cursor:pointer;
+    color:var(--charcoal-mid);font-size:.9rem;padding:2px 4px;
+    margin-left:auto;transition:color .15s;
+  }
+  .remove-btn:hover{color:#d32f2f;}
+
+  /* CART EMPTY STATE */
+  .cart-empty-msg{
+    text-align:center;padding:1.2rem 0;
+    font-size:.85rem;color:var(--charcoal-mid);
+  }
+  .cart-empty-msg .empty-icon{font-size:2rem;display:block;margin-bottom:.4rem;}
+
+  /* CART FOOTER */
+  .cart-footer{padding-top:.7rem;border-top:2px solid var(--pink-light);}
+  .cart-total-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem;}
+  .cart-total-label{font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--charcoal);}
+  .cart-total-amount{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:600;color:var(--pink-dark);}
+  .btn{display:inline-block;padding:.65rem 1.4rem;border-radius:50px;font-family:'Fredoka',sans-serif;font-size:.92rem;font-weight:500;cursor:pointer;transition:all .22s;text-decoration:none;border:none;letter-spacing:.02em;text-align:center;}
+  .btn-primary{background:var(--pink-dark);color:var(--white);box-shadow:0 4px 16px rgba(196,118,176,.35);}
+  .btn-primary:hover{background:#b35f9f;transform:translateY(-2px);}
+
+  /* TOAST */
+  .toast{
+    position:fixed;bottom:28px;left:50%;
+    transform:translateX(-50%) translateY(16px);
+    background:var(--charcoal);color:var(--white);
+    font-family:'Fredoka',sans-serif;font-size:.9rem;
+    padding:.65rem 1.4rem;border-radius:50px;
+    box-shadow:var(--shadow);opacity:0;pointer-events:none;
+    transition:opacity .25s,transform .25s;z-index:300;white-space:nowrap;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  /* PAGE */
   .page{position:relative;z-index:1;}
 
- 
+  /* BANNER */
   .page-banner{background:linear-gradient(135deg,#fdf6fb 0%,var(--beige) 55%,#f7e6f3 100%);padding:4rem 6% 3rem;position:relative;overflow:hidden;}
   .page-banner::after{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:var(--pink-light);opacity:.4;}
   .page-banner-inner{position:relative;z-index:1;max-width:640px;}
@@ -58,71 +168,49 @@
   .page-banner h1{font-size:clamp(2rem,4vw,3rem);font-weight:600;color:var(--charcoal);margin-bottom:.7rem;}
   .page-banner p{font-size:1rem;color:var(--charcoal-mid);}
 
- 
+  /* CATALOGUE BODY */
   .cat-body{padding:3rem 6% 4rem;}
-  .divider{width:44px;height:4px;background:var(--pink-dark);border-radius:4px;margin-bottom:2rem;}
-
- 
   .cat-nav{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:2.8rem;}
   .cat-pill{padding:.42rem 1.25rem;border-radius:50px;font-family:'Fredoka',sans-serif;font-size:.95rem;cursor:pointer;border:2px solid var(--pink-light);background:var(--white);color:var(--charcoal-mid);transition:all .2s;}
   .cat-pill.active,.cat-pill:hover{background:var(--pink-dark);border-color:var(--pink-dark);color:var(--white);}
-
- 
   .cat-label{font-family:'Fredoka',sans-serif;font-size:1.2rem;font-weight:500;color:var(--charcoal-mid);margin:2.2rem 0 1.1rem;padding-left:.6rem;border-left:4px solid var(--pink-dark);}
+  .no-results{font-family:'Fredoka',sans-serif;font-size:1rem;color:var(--charcoal-mid);text-align:center;padding:2.5rem 0;display:none;}
 
- 
+  /* PRODUCT GRID */
   .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1.3rem;margin-bottom:.5rem;}
-  .product-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:all .25s;cursor:pointer;border:1.5px solid transparent;}
+  .product-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:all .25s;border:1.5px solid transparent;}
   .product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--pink-light);}
-
- 
-  .product-img{
-    width:100%;
-    height:200px;          
-    background:var(--pink-light);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:3rem;         
-    color:var(--pink-dark);
-    position:relative;
-    overflow:hidden;
-  }
- 
-  .product-img img{
-    width:100%;
-    height:100%;
-    object-fit:cover;       
-    object-position:center;
-    display:block;
-    transition:transform .35s ease;
-  }
-  .product-card:hover .product-img img{
-    transform:scale(1.05);  
-  }
-  
-  .product-img .emoji-fallback{
-    font-size:3rem;
-  }
-
+  .product-img{width:100%;height:200px;background:var(--pink-light);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+  .product-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .35s ease;}
+  .product-card:hover .product-img img{transform:scale(1.05);}
+  .emoji-fallback{font-size:3rem;}
   .product-badge{position:absolute;top:10px;left:10px;background:var(--pink-dark);color:var(--white);font-family:'Fredoka',sans-serif;font-size:.72rem;padding:3px 10px;border-radius:50px;z-index:2;}
   .product-info{padding:.9rem 1rem 1.1rem;}
   .product-name{font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:500;color:var(--charcoal);margin-bottom:.25rem;}
   .product-desc{font-size:.83rem;color:var(--charcoal-mid);margin-bottom:.75rem;line-height:1.5;}
   .product-footer{display:flex;align-items:center;justify-content:space-between;}
   .product-price{font-family:'Fredoka',sans-serif;font-size:1.05rem;font-weight:600;color:var(--pink-dark);}
-  .add-btn{width:32px;height:32px;border-radius:50%;background:var(--pink-dark);border:none;color:var(--white);font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;line-height:1;}
-  .add-btn:hover{background:#b35f9f;}
+  .add-btn{width:34px;height:34px;border-radius:50%;background:var(--pink-dark);border:none;color:var(--white);font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .15s;line-height:1;}
+  .add-btn:hover{background:#b35f9f;transform:scale(1.1);}
+  .add-btn.added{background:#5fa779;transform:scale(1.15);}
 
-  
+  /* FAQ ACCORDION */
+  .faq-section{margin-top:3.5rem;}
+  .faq-list{max-width:760px;}
+  .faq-item{background:var(--white);border-radius:var(--radius-sm);margin-bottom:.8rem;box-shadow:var(--shadow-sm);overflow:hidden;border:1.5px solid var(--pink-light);}
+  .faq-question{width:100%;text-align:left;background:none;border:none;padding:1.1rem 1.3rem;font-family:'Fredoka',sans-serif;font-size:.98rem;font-weight:500;color:var(--charcoal);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+  .faq-question:hover{color:var(--pink-dark);}
+  .faq-icon{font-size:1.1rem;color:var(--pink-dark);transition:transform .25s;flex-shrink:0;}
+  .faq-item.open .faq-icon{transform:rotate(45deg);}
+  .faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .faq-answer-inner{padding:0 1.3rem 1.2rem;font-size:.9rem;color:var(--charcoal-mid);line-height:1.65;}
+
+  /* CTA */
   .order-cta{text-align:center;margin-top:3rem;padding:2.5rem;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);border:2px dashed var(--pink-light);}
   .order-cta p{color:var(--charcoal-mid);margin-bottom:1.2rem;font-size:.97rem;}
-  .btn{display:inline-block;padding:.72rem 1.8rem;border-radius:50px;font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:500;cursor:pointer;transition:all .22s;text-decoration:none;border:none;letter-spacing:.02em;}
-  .btn-primary{background:var(--pink-dark);color:var(--white);box-shadow:0 4px 16px rgba(196,118,176,.35);}
-  .btn-primary:hover{background:#b35f9f;transform:translateY(-2px);}
 
-  
-  footer{background:var(--charcoal);color:rgba(255,255,255,.7);padding:3.5rem 6% 2rem;position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.06);}
+  /* FOOTER */
+  footer{background:var(--charcoal);color:rgba(255,255,255,.7);padding:3.5rem 6% 2rem;position:relative;z-index:1;}
   .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem;}
   .footer-logo{font-family:'Fredoka',sans-serif;font-size:1.35rem;font-weight:600;color:var(--pink);text-decoration:none;}
   .footer-logo span{color:var(--white);}
@@ -132,30 +220,14 @@
   .footer-col li{margin-bottom:.45rem;}
   .footer-col a{text-decoration:none;color:rgba(255,255,255,.45);font-size:.86rem;transition:color .2s;}
   .footer-col a:hover{color:var(--pink);}
-  .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.3rem;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:rgba(255,255,255,.28);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.3rem;display:flex;justify-content:space-between;font-size:.8rem;color:rgba(255,255,255,.28);}
   .social-links{display:flex;gap:.6rem;margin-top:1rem;}
   .social-btn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.07);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);font-size:.95rem;transition:all .2s;text-decoration:none;}
   .social-btn:hover{background:var(--pink-dark);color:var(--white);}
 
-  
-  @media(max-width:900px){
-    nav{padding:0 5%;}
-    .cat-body{padding:2.5rem 5%;}
-    .page-banner{padding:3rem 5%;}
-    .footer-grid{grid-template-columns:1fr 1fr;}
-    .product-grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));}
-  }
-  @media(max-width:600px){
-    .nav-links{display:none;}
-    .footer-grid{grid-template-columns:1fr;}
-    .product-grid{grid-template-columns:repeat(2,1fr);gap:1rem;}
-    .product-img{height:160px;}
-    .cat-body{padding:2rem 4%;}
-    .page-banner{padding:2.5rem 4%;}
-  }
-  @media(max-width:360px){
-    .product-grid{grid-template-columns:1fr;}
-  }
+  @media(max-width:900px){nav{padding:0 5%;}.cat-body{padding:2.5rem 5%;}.page-banner{padding:3rem 5%;}.footer-grid{grid-template-columns:1fr 1fr;}.product-grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));}}
+  @media(max-width:600px){.nav-links{display:none;}.footer-grid{grid-template-columns:1fr;}.product-grid{grid-template-columns:repeat(2,1fr);gap:1rem;}.product-img{height:160px;}.search-panel,.cart-panel{width:90vw;right:-2vw;}}
+  @media(max-width:360px){.product-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -174,6 +246,7 @@
   <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#d4956a"/><circle cx="72" cy="28" r="14" fill="#d4956a"/><circle cx="28" cy="28" r="9" fill="#e8b48a"/><circle cx="72" cy="28" r="9" fill="#e8b48a"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#d4956a"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#e8b48a"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#b06040"/><path d="M45 62 Q50 67 55 62" stroke="#b06040" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#d4956a"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#e8b48a"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
 </div>
 
+<!-- NAV -->
 <nav>
   <a class="nav-logo" href="index.html">Sweetheart <span>Factorie</span></a>
   <ul class="nav-links">
@@ -184,10 +257,41 @@
     <li><a href="contact.html">Contact Us</a></li>
   </ul>
   <div class="nav-actions">
-    <button class="nav-icon">🔍</button>
-    <button class="nav-icon">🛒</button>
+
+    <!-- SEARCH BUTTON + DROPDOWN -->
+    <button class="nav-icon" id="searchToggle" aria-label="Search products" aria-expanded="false">🔍</button>
+    <div class="search-panel" id="searchPanel">
+      <input type="text" id="searchInput" placeholder="Search products…" autocomplete="off">
+      <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <!-- CART BUTTON + BADGE + DROPDOWN -->
+    <button class="nav-icon" id="cartToggle" aria-label="View cart" aria-expanded="false">
+      🛒
+      <span class="cart-badge" id="cartBadge">0</span>
+    </button>
+    <div class="cart-panel" id="cartPanel">
+      <div class="cart-panel-header">
+        <h4>🛒 Your Cart</h4>
+        <button class="cart-clear-btn" onclick="clearCart()">Clear all</button>
+      </div>
+      <div class="cart-items-list" id="cartItemsList"></div>
+      <div class="cart-footer" id="cartFooter" style="display:none;">
+        <div class="cart-total-row">
+          <span class="cart-total-label">Total</span>
+          <span class="cart-total-amount" id="cartTotalAmount">R 0</span>
+        </div>
+        <a href="order.html" class="btn btn-primary" style="width:100%;display:block;">
+          Proceed to Order 💌
+        </a>
+      </div>
+    </div>
+
   </div>
 </nav>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
 
 <div class="page">
   <div class="page-banner">
@@ -206,17 +310,15 @@
       <button class="cat-pill" onclick="filterCat('cots',this)">🛺 Prams, Walkers & Tricycles</button>
     </div>
 
-  
+    <!-- NURSERY -->
     <div class="cat-section" data-cat="nursery">
       <div class="cat-label">🛏 Nursery Furniture</div>
       <div class="product-grid">
 
-        
-        <div class="product-card">
+        <div class="product-card" data-name="Baby crib with clouds – Classic" data-price="2499" data-img="img/download (1).jpg">
           <div class="product-img">
             <span class="product-badge">New</span>
-            <img src="img/download (1).jpg" alt="Wooden Crib – Classic"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="img/download (1).jpg" alt="Wooden baby crib with cloud decals, classic design" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <span class="emoji-fallback" style="display:none">🛏</span>
           </div>
           <div class="product-info">
@@ -224,42 +326,38 @@
             <div class="product-desc">Sturdy timber frame with adjustable mattress height, fits standard mattress.</div>
             <div class="product-footer">
               <span class="product-price">R 2 499</span>
-              <button class="add-btn">+</button>
+              <button class="add-btn" aria-label="Add Baby crib with clouds – Classic to cart">+</button>
             </div>
           </div>
         </div>
 
-        
-        <div class="product-card">
+        <div class="product-card" data-name="Baby Crib with Clouds – Budget" data-price="1000" data-img="img/download.jpg">
           <div class="product-img">
-            <img src="img/download.jpg" alt="Baby crib "
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="img/download.jpg" alt="Budget-friendly baby crib with cloud design" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <span class="emoji-fallback" style="display:none">🌙</span>
           </div>
           <div class="product-info">
             <div class="product-name">Baby Crib with Clouds – Budget</div>
             <div class="product-desc">Budget-friendly, high-quality option for new families.</div>
             <div class="product-footer">
-              <span class="product-price">R 1000</span>
-              <button class="add-btn">+</button>
+              <span class="product-price">R 1 000</span>
+              <button class="add-btn" aria-label="Add Baby Crib with Clouds – Budget to cart">+</button>
             </div>
           </div>
         </div>
 
-        
-        <div class="product-card">
+        <div class="product-card" data-name="Wooden Crib – Classic" data-price="1000" data-img="img/baby-crib-with-mobile-bright-room.jpg">
           <div class="product-img">
             <span class="product-badge">Sale</span>
-            <img src="img/baby-crib-with-mobile-bright-room.jpg" alt="Butterfly Crib Set"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="img/baby-crib-with-mobile-bright-room.jpg" alt="Wooden baby crib with hanging mobile in a bright nursery" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <span class="emoji-fallback" style="display:none">🌸</span>
           </div>
           <div class="product-info">
             <div class="product-name">Wooden Crib – Classic</div>
             <div class="product-desc">Sturdy timber frame with adjustable mattress height, fits standard mattress.</div>
             <div class="product-footer">
-              <span class="product-price">R 1000</span>
-              <button class="add-btn">+</button>
+              <span class="product-price">R 1 000</span>
+              <button class="add-btn" aria-label="Add Wooden Crib – Classic to cart">+</button>
             </div>
           </div>
         </div>
@@ -267,14 +365,14 @@
       </div>
     </div>
 
-  <div class="cat-section" data-cat="toys">
+    <!-- TOYS -->
+    <div class="cat-section" data-cat="toys">
       <div class="cat-label">🧸 Toys</div>
       <div class="product-grid">
- 
-        <div class="product-card">
+
+        <div class="product-card" data-name="Wooden Toys for 1-3 Years" data-price="400" data-img="img/Wooden toys 1 2 3 Years__.jpg">
           <div class="product-img">
-            <img src="img/Wooden toys 1 2 3 Years__.jpg" alt="Wooden Toys for 1-3 Years"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="img/Wooden toys 1 2 3 Years__.jpg" alt="Set of wooden toys suitable for 1 to 3 year olds" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <span class="emoji-fallback" style="display:none">🧸</span>
           </div>
           <div class="product-info">
@@ -282,16 +380,15 @@
             <div class="product-desc">Perfect for developing fine motor skills.</div>
             <div class="product-footer">
               <span class="product-price">R 400</span>
-              <button class="add-btn">+</button>
+              <button class="add-btn" aria-label="Add Wooden Toys for 1-3 Years to cart">+</button>
             </div>
           </div>
         </div>
- 
-        <div class="product-card">
+
+        <div class="product-card" data-name="Musical Activity Gym" data-price="500" data-img="img/amylynbeauty on LTK.jpg">
           <div class="product-img">
             <span class="product-badge">Popular</span>
-            <img src="img/amylynbeauty on LTK.jpg" alt="Musical Activity Gym"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="img/amylynbeauty on LTK.jpg" alt="Baby musical activity gym with hanging toys" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <span class="emoji-fallback" style="display:none">🎶</span>
           </div>
           <div class="product-info">
@@ -299,15 +396,14 @@
             <div class="product-desc">Develops motor skills with lights, sounds and textures.</div>
             <div class="product-footer">
               <span class="product-price">R 500</span>
-              <button class="add-btn">+</button>
+              <button class="add-btn" aria-label="Add Musical Activity Gym to cart">+</button>
             </div>
           </div>
         </div>
- 
-        <div class="product-card">
+
+        <div class="product-card" data-name="Chalkboard/Marker Board Easel" data-price="600" data-img="img/Just bought Hayden a chalkboard_marker board easel!.jpg">
           <div class="product-img">
-            <img src="img/Just bought Hayden a chalkboard_marker board easel!.jpg" alt="Chalkboard Easel"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="img/Just bought Hayden a chalkboard_marker board easel!.jpg" alt="Wooden chalkboard and marker board easel for kids" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <span class="emoji-fallback" style="display:none">🎨</span>
           </div>
           <div class="product-info">
@@ -315,24 +411,23 @@
             <div class="product-desc">Perfect for encouraging creativity.</div>
             <div class="product-footer">
               <span class="product-price">R 600</span>
-              <button class="add-btn">+</button>
+              <button class="add-btn" aria-label="Add Chalkboard/Marker Board Easel to cart">+</button>
             </div>
           </div>
         </div>
- 
+
       </div>
     </div>
 
+    <!-- PRAMS / WALKERS / TRICYCLES -->
     <div class="cat-section" data-cat="cots">
-       <div class="cat-label">🛺 Prams, Walkers & Tricycles</div>
+      <div class="cat-label">🛺 Prams, Walkers & Tricycles</div>
       <div class="product-grid">
 
-       
-        <div class="product-card">
+        <div class="product-card" data-name="Deluxe Pram Pro" data-price="4999" data-img="img/download (2).jpg">
           <div class="product-img">
             <span class="product-badge">Bestseller</span>
-            <img src="img/download (2).jpg" alt="Deluxe Pram Pro"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="img/download (2).jpg" alt="Deluxe baby pram with reversible seat and sun canopy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <span class="emoji-fallback" style="display:none">🛺</span>
           </div>
           <div class="product-info">
@@ -340,46 +435,50 @@
             <div class="product-desc">Lightweight frame with reversible seat and sun canopy. Folds flat.</div>
             <div class="product-footer">
               <span class="product-price">R 4 999</span>
-              <button class="add-btn">+</button>
+              <button class="add-btn" aria-label="Add Deluxe Pram Pro to cart">+</button>
             </div>
           </div>
         </div>
 
-        
-        <div class="product-card">
+        <div class="product-card" data-name="Baby Walking Walker" data-price="1699" data-img="img/download (3).jpg">
           <div class="product-img">
-            <img src="img/download (3).jpg" alt="Baby walking walker"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="img/download (3).jpg" alt="Baby walker to encourage independent walking" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <span class="emoji-fallback" style="display:none">👶</span>
           </div>
           <div class="product-info">
-            <div class="product-name">Baby walking walker</div>
+            <div class="product-name">Baby Walking Walker</div>
             <div class="product-desc">Perfect for encouraging independent movement.</div>
             <div class="product-footer">
               <span class="product-price">R 1 699</span>
-              <button class="add-btn">+</button>
+              <button class="add-btn" aria-label="Add Baby Walking Walker to cart">+</button>
             </div>
           </div>
         </div>
 
-        
-        <div class="product-card">
+        <div class="product-card" data-name="Tricycle for 2-5 Years" data-price="2000" data-img="img/Lifelong Trike Cycle for 2-5 Years - Tricycles for Boy & Girl - Baby Cycle for Kids with 3 EVA Wheels, Bell & Basket -Durable Tricycle with Parental Control 30kg Capacity (Pink & Grey).jpg">
           <div class="product-img">
-            <img src="img/Lifelong Trike Cycle for 2-5 Years - Tricycles for Boy & Girl - Baby Cycle for Kids with 3 EVA Wheels, Bell & Basket -Durable Tricycle with Parental Control 30kg Capacity (Pink & Grey).jpg" alt="Pram + Cot Bundle"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="emoji-fallback" style="display:none"></span>
+            <img src="img/Lifelong Trike Cycle for 2-5 Years - Tricycles for Boy & Girl - Baby Cycle for Kids with 3 EVA Wheels, Bell & Basket -Durable Tricycle with Parental Control 30kg Capacity (Pink & Grey).jpg" alt="Pink and grey tricycle for toddlers aged 2 to 5 years" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span class="emoji-fallback" style="display:none">🚲</span>
           </div>
           <div class="product-info">
-            <div class="product-name">Tricycle</div>
+            <div class="product-name">Tricycle for 2-5 Years</div>
             <div class="product-desc">Perfect first bike for 2-5 year olds. Safe and durable.</div>
             <div class="product-footer">
-              <span class="product-price">R 2000</span>
-              <button class="add-btn">+</button>
+              <span class="product-price">R 2 000</span>
+              <button class="add-btn" aria-label="Add Tricycle for 2-5 Years to cart">+</button>
             </div>
           </div>
         </div>
 
       </div>
+    </div>
+
+    <div class="no-results" id="noResults">No products match that filter just yet — check back soon! 💕</div>
+
+    <!-- FAQ ACCORDION (rendered dynamically via JavaScript) -->
+    <div class="faq-section">
+      <h2 class="cat-label" style="margin-top:0;">❓ Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqList"><!-- populated by renderFaq() in JS --></div>
     </div>
 
     <div class="order-cta">
@@ -400,7 +499,7 @@
         <a class="social-btn" href="#">🐦</a>
       </div>
     </div>
-    <div class="footer-col"><h4>Shop</h4><ul><li><a href="#">Nursery Stuff</a></li><li><a href="#">Toys</a></li><li><a href="#">Cots & Prams</a></li><li><a href="#">Gift Sets</a></li></ul></div>
+    <div class="footer-col"><h4>Shop</h4><ul><li><a href="catalogue.html">Nursery Stuff</a></li><li><a href="catalogue.html">Toys</a></li><li><a href="catalogue.html">Cots &amp; Prams</a></li></ul></div>
     <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="about.html">Our Team</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     <div class="footer-col"><h4>Help</h4><ul><li><a href="#">Delivery Info</a></li><li><a href="#">Returns</a></li><li><a href="#">FAQ</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
   </div>
@@ -411,13 +510,292 @@
 </footer>
 
 <script>
+/* ================================================================
+   SWEETHEART FACTORIE — CART + SEARCH (vanilla JS, no jQuery)
+   ================================================================ */
+
+/* ── PRODUCT INDEX: built once from DOM ── */
+const PRODUCTS = Array.from(document.querySelectorAll('.product-card')).map(card => ({
+  name:  card.dataset.name,
+  price: parseFloat(card.dataset.price),
+  img:   card.dataset.img,
+  el:    card
+}));
+
+/* ── CART STATE (session only — no localStorage needed for school project) ── */
+let cart = [];
+
+/* ── UTILS ── */
+function rand(n) {
+  return 'R\u00a0' + n.toLocaleString('en-ZA');
+}
+
+function safe(str) {
+  return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+}
+
+/* ── TOAST ── */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._t);
+  t._t = setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+/* ── ADD TO CART ── */
+function addToCart(name, price, img, btnEl) {
+  const found = cart.find(i => i.name === name);
+  if (found) {
+    found.qty += 1;
+  } else {
+    cart.push({ name, price, img, qty: 1 });
+  }
+  renderCart();
+  showToast(name + ' added to cart 💕');
+
+  /* button feedback */
+  if (btnEl) {
+    btnEl.classList.add('added');
+    btnEl.textContent = '✓';
+    setTimeout(() => {
+      btnEl.classList.remove('added');
+      btnEl.textContent = '+';
+    }, 700);
+  }
+}
+
+/* ── CHANGE QTY ── */
+function changeQty(name, delta) {
+  const item = cart.find(i => i.name === name);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) {
+    cart = cart.filter(i => i.name !== name);
+  }
+  renderCart();
+}
+
+/* ── REMOVE ITEM ── */
+function removeItem(name) {
+  cart = cart.filter(i => i.name !== name);
+  renderCart();
+}
+
+/* ── CLEAR CART ── */
+function clearCart() {
+  cart = [];
+  renderCart();
+}
+
+/* ── RENDER CART PANEL ── */
+function renderCart() {
+  const totalQty   = cart.reduce((s, i) => s + i.qty, 0);
+  const badge      = document.getElementById('cartBadge');
+  const listEl     = document.getElementById('cartItemsList');
+  const footerEl   = document.getElementById('cartFooter');
+  const totalAmtEl = document.getElementById('cartTotalAmount');
+
+  /* badge */
+  badge.textContent = totalQty;
+  badge.classList.toggle('visible', totalQty > 0);
+
+  /* empty state */
+  if (cart.length === 0) {
+    listEl.innerHTML = `
+      <div class="cart-empty-msg">
+        <span class="empty-icon">🛒</span>
+        Your cart is empty.<br>Go on, treat your little one!
+      </div>`;
+    footerEl.style.display = 'none';
+    return;
+  }
+
+  /* item rows */
+  listEl.innerHTML = cart.map(item => `
+    <div class="cart-item-row">
+      <img class="cart-item-thumb"
+           src="${item.img}"
+           alt="${item.name}"
+           onerror="this.style.display='none'">
+      <div class="cart-item-details">
+        <div class="cart-item-title">${item.name}</div>
+        <div class="cart-item-subtotal">${rand(item.price * item.qty)}</div>
+        <div class="cart-qty-controls">
+          <button class="qty-btn" onclick="changeQty('${safe(item.name)}', -1)" aria-label="Decrease quantity">−</button>
+          <span class="qty-num">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty('${safe(item.name)}', 1)" aria-label="Increase quantity">+</button>
+        </div>
+      </div>
+      <button class="remove-btn" onclick="removeItem('${safe(item.name)}')" aria-label="Remove ${item.name}">✕</button>
+    </div>
+  `).join('');
+
+  /* total */
+  const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  totalAmtEl.textContent = rand(total);
+  footerEl.style.display = 'block';
+}
+
+/* ── WIRE UP ALL ADD BUTTONS ── */
+document.querySelectorAll('.product-card').forEach(card => {
+  const btn = card.querySelector('.add-btn');
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    addToCart(card.dataset.name, parseFloat(card.dataset.price), card.dataset.img, btn);
+  });
+});
+
+/* ── SEARCH + CART TOGGLE PANELS ── */
+const searchToggle  = document.getElementById('searchToggle');
+const searchPanel   = document.getElementById('searchPanel');
+const searchInput   = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+const cartToggle    = document.getElementById('cartToggle');
+const cartPanel     = document.getElementById('cartPanel');
+
+function closePanels() {
+  searchPanel.classList.remove('open');
+  cartPanel.classList.remove('open');
+  searchToggle.setAttribute('aria-expanded', 'false');
+  cartToggle.setAttribute('aria-expanded',   'false');
+}
+
+searchToggle.addEventListener('click', e => {
+  e.stopPropagation();
+  const willOpen = !searchPanel.classList.contains('open');
+  closePanels();
+  if (willOpen) {
+    searchPanel.classList.add('open');
+    searchToggle.setAttribute('aria-expanded', 'true');
+    searchInput.focus();
+  }
+});
+
+cartToggle.addEventListener('click', e => {
+  e.stopPropagation();
+  const willOpen = !cartPanel.classList.contains('open');
+  closePanels();
+  if (willOpen) {
+    cartPanel.classList.add('open');
+    cartToggle.setAttribute('aria-expanded', 'true');
+  }
+});
+
+/* close panels when clicking outside */
+document.addEventListener('click', e => {
+  if (!searchPanel.contains(e.target) && e.target !== searchToggle &&
+      !cartPanel.contains(e.target)   && e.target !== cartToggle) {
+    closePanels();
+  }
+});
+
+/* close on Escape key */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closePanels();
+});
+
+/* ── LIVE SEARCH ── */
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.trim().toLowerCase();
+  if (!q) { searchResults.innerHTML = ''; return; }
+
+  const matches = PRODUCTS.filter(p => p.name.toLowerCase().includes(q));
+  if (!matches.length) {
+    searchResults.innerHTML = `<div class="search-empty">No products found for "${searchInput.value}".</div>`;
+    return;
+  }
+
+  searchResults.innerHTML = matches.map(p => `
+    <a class="search-result-item" href="#" data-name="${p.name}">
+      <img src="${p.img}" alt="${p.name}" onerror="this.style.visibility='hidden'">
+      <div>
+        <div class="sr-name">${p.name}</div>
+        <div class="sr-price">${rand(p.price)}</div>
+      </div>
+    </a>
+  `).join('');
+});
+
+/* clicking a search result scrolls to the card */
+searchResults.addEventListener('click', e => {
+  const item = e.target.closest('.search-result-item');
+  if (!item) return;
+  e.preventDefault();
+  const product = PRODUCTS.find(p => p.name === item.dataset.name);
+  if (product) {
+    product.el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    product.el.style.transition = 'box-shadow .3s';
+    product.el.style.boxShadow = '0 0 0 3px var(--pink-dark)';
+    setTimeout(() => { product.el.style.boxShadow = ''; }, 1400);
+    closePanels();
+    searchInput.value = '';
+    searchResults.innerHTML = '';
+  }
+});
+
+/* ── CATEGORY FILTER ── */
 function filterCat(cat, btn) {
   document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
   btn.classList.add('active');
+  let any = false;
   document.querySelectorAll('.cat-section').forEach(s => {
-    s.style.display = (cat === 'all' || s.dataset.cat === cat) ? 'block' : 'none';
+    const show = (cat === 'all' || s.dataset.cat === cat);
+    s.style.display = show ? 'block' : 'none';
+    if (show) any = true;
   });
+  document.getElementById('noResults').style.display = any ? 'none' : 'block';
 }
+
+/* ── FAQ ACCORDION: rendered dynamically from data using DOM manipulation ── */
+const faqData = [
+  { q: 'Are products suitable for newborns?', a: 'Yes, all items in our nursery and toy ranges are tested and labelled for newborn safety where applicable. Check each product description for the recommended age range.' },
+  { q: 'Can I filter products by category?', a: 'Yes! Use the category buttons above (Nursery Furniture, Toys, Prams, Walkers & Tricycles) to filter instantly, or click the 🔍 search icon to find a specific item by name.' },
+  { q: 'Do you offer bundle discounts?', a: 'Yes, look out for bundle items that combine popular products at a discounted price compared to buying separately. Ask us about current bundles via the Contact page.' },
+  { q: 'How do I know if an item is in stock?', a: 'Add the item to your cart using the + button — if it can be added, it\'s in stock. For specific pricing or availability questions, head to our Contact page and we\'ll respond within 1 business day.' },
+  { q: 'How long does delivery take?', a: 'We deliver nationwide across South Africa, typically within 3–5 business days depending on your location.' },
+  { q: 'Can I build my own gift pack?', a: 'Yes! Head over to our Order page and select "Build My Own Pack" from the product dropdown, then tell us what you\'d like included in the special instructions field.' }
+];
+
+function renderFaq() {
+  const list = document.getElementById('faqList');
+  if (!list) return;
+  list.innerHTML = faqData.map((item, i) => `
+    <div class="faq-item" id="faq-${i}">
+      <button class="faq-question" onclick="toggleFaq(${i})">
+        <span>${item.q}</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">${item.a}</div></div>
+    </div>
+  `).join('');
+}
+
+function toggleFaq(index) {
+  const item = document.getElementById('faq-' + index);
+  const answer = item.querySelector('.faq-answer');
+  const isOpen = item.classList.contains('open');
+
+  document.querySelectorAll('.faq-item.open').forEach(openItem => {
+    if (openItem !== item) {
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-answer').style.maxHeight = null;
+    }
+  });
+
+  if (isOpen) {
+    item.classList.remove('open');
+    answer.style.maxHeight = null;
+  } else {
+    item.classList.add('open');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+}
+
+renderFaq();
+
+
+renderCart();
 </script>
 </body>
 </html>

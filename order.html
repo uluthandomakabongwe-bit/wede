@@ -1,81 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order – Sweetheart Factorie</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --beige:#F2EAE0;--pink:#E4A3D4;--pink-light:#f7e6f3;--pink-dark:#c476b0;
-  --charcoal:#263238;--charcoal-mid:#455a64;--white:#ffffff;--soft-white:#fdf9f7;
-  --shadow:0 4px 24px rgba(38,50,56,.10);--shadow-sm:0 2px 8px rgba(38,50,56,.07);
-  --radius:20px;--radius-sm:12px;
-}
-html{scroll-behavior:smooth;}
-body{font-family:'Nunito',sans-serif;background:var(--beige);color:var(--charcoal);font-size:16px;line-height:1.75;overflow-x:hidden;}
-h1,h2,h3,h4{font-family:'Fredoka',sans-serif;}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Baby Gifts, Toys, Cots & Prams Online | Sweetheart Factorie</title>
+<meta name="description" content="Place your order for baby gift sets, toys, cots and prams with Sweetheart Factorie. Nationwide delivery across South Africa with secure payment options.">
+<meta name="keywords" content="order baby gifts online, buy baby pram South Africa, order nursery furniture, baby gift delivery">
+<link rel="canonical" href="https://www.sweetheartfactorie.co.za/order.html">
+<meta property="og:title" content="Order Online | Sweetheart Factorie">
+<meta property="og:description" content="Order baby gift sets, toys, cots and prams with nationwide delivery.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --beige:#F2EAE0;--pink:#E4A3D4;--pink-light:#f7e6f3;--pink-dark:#c476b0;
+    --charcoal:#263238;--charcoal-mid:#455a64;--white:#ffffff;--soft-white:#fdf9f7;
+    --shadow:0 4px 24px rgba(38,50,56,.10);--shadow-sm:0 2px 8px rgba(38,50,56,.07);
+    --radius:20px;--radius-sm:12px;
+  }
+  html{scroll-behavior:smooth;}
+  body{font-family:'Nunito',sans-serif;background:var(--beige);color:var(--charcoal);font-size:16px;line-height:1.75;overflow-x:hidden;}
+  h1,h2,h3,h4{font-family:'Fredoka',sans-serif;}
 
-/* NAV */
-nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:2px solid var(--pink-light);display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:68px;box-shadow:var(--shadow-sm);}
-.nav-logo{font-family:'Fredoka',sans-serif;font-size:1.45rem;font-weight:600;color:var(--pink-dark);text-decoration:none;}
-.nav-logo span{color:var(--charcoal);}
-.nav-links{display:flex;gap:1.8rem;list-style:none;}
-.nav-links a{text-decoration:none;color:var(--charcoal-mid);font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:500;padding-bottom:4px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
-.nav-links a:hover,.nav-links a.active{color:var(--pink-dark);border-bottom-color:var(--pink-dark);}
-.nav-actions{display:flex;gap:.7rem;}
-.nav-icon{width:38px;height:38px;border-radius:50%;background:var(--pink-light);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--pink-dark);font-size:1.1rem;transition:background .2s;}
-.nav-icon:hover{background:var(--pink-dark);color:var(--white);}
+  /* BEARS */
+  .bg-bears{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+  .bear{position:absolute;bottom:-180px;opacity:0;animation:floatBear linear infinite;}
+  .bear:nth-child(1){left:4%;animation-duration:18s;animation-delay:0s;width:72px;}
+  .bear:nth-child(2){left:14%;animation-duration:24s;animation-delay:3s;width:52px;}
+  .bear:nth-child(3){left:26%;animation-duration:20s;animation-delay:7s;width:68px;}
+  .bear:nth-child(4){left:38%;animation-duration:16s;animation-delay:1s;width:88px;}
+  .bear:nth-child(5){left:51%;animation-duration:22s;animation-delay:5s;width:48px;}
+  .bear:nth-child(6){left:62%;animation-duration:19s;animation-delay:10s;width:62px;}
+  .bear:nth-child(7){left:73%;animation-duration:25s;animation-delay:2s;width:74px;}
+  .bear:nth-child(8){left:84%;animation-duration:17s;animation-delay:8s;width:56px;}
+  .bear:nth-child(9){left:91%;animation-duration:21s;animation-delay:4s;width:82px;}
+  .bear:nth-child(10){left:32%;animation-duration:23s;animation-delay:12s;width:46px;}
+  @keyframes floatBear{
+    0%{bottom:-180px;opacity:0;transform:translateX(0) rotate(-4deg) scale(.85);}
+    5%{opacity:.15;}50%{transform:translateX(28px) rotate(4deg) scale(1);}
+    80%{opacity:.15;}100%{bottom:110vh;opacity:0;transform:translateX(-18px) rotate(-2deg) scale(.9);}
+  }
 
-/* PAGE */
-.page{position:relative;z-index:1;}
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:2px solid var(--pink-light);display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:68px;box-shadow:var(--shadow-sm);}
+  .nav-logo{font-family:'Fredoka',sans-serif;font-size:1.45rem;font-weight:600;color:var(--pink-dark);text-decoration:none;}
+  .nav-logo span{color:var(--charcoal);}
+  .nav-links{display:flex;gap:1.8rem;list-style:none;}
+  .nav-links a{text-decoration:none;color:var(--charcoal-mid);font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:500;padding-bottom:4px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
+  .nav-links a:hover,.nav-links a.active{color:var(--pink-dark);border-bottom-color:var(--pink-dark);}
+  .nav-actions{display:flex;gap:.7rem;}
+  .nav-icon{width:38px;height:38px;border-radius:50%;background:var(--pink-light);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--pink-dark);font-size:1.1rem;transition:background .2s;}
+  .nav-icon:hover{background:var(--pink-dark);color:var(--white);}
 
-/* BANNER */
-.page-banner{background:linear-gradient(135deg,#fdf6fb 0%,var(--beige) 55%,#f7e6f3 100%);padding:4rem 6% 3rem;position:relative;overflow:hidden;}
-.page-banner::after{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:var(--pink-light);opacity:.4;}
-.page-banner-inner{position:relative;z-index:1;max-width:640px;}
-.page-tag{display:inline-block;background:var(--pink-light);color:var(--pink-dark);font-family:'Fredoka',sans-serif;font-size:.88rem;font-weight:500;padding:4px 14px;border-radius:50px;margin-bottom:.9rem;letter-spacing:.03em;}
-.page-banner h1{font-size:clamp(2rem,4vw,3rem);font-weight:600;color:var(--charcoal);margin-bottom:.7rem;}
-.page-banner p{font-size:1rem;color:var(--charcoal-mid);}
+  .page{position:relative;z-index:1;}
 
-/* ORDER FORM */
-.order-body{padding:3rem 6% 4rem;}
-.form-section{background:var(--white);border-radius:var(--radius);padding:2rem;margin-bottom:2rem;box-shadow:var(--shadow-sm);}
-.form-section h3{font-size:1.2rem;margin-bottom:1.5rem;color:var(--charcoal);}
-.form-group{margin-bottom:1.5rem;}
-.form-group label{display:block;font-family:'Fredoka',sans-serif;font-weight:500;color:var(--charcoal);margin-bottom:.5rem;}
-.form-group input[type="text"],.form-group input[type="email"],.form-group input[type="tel"],.form-group input[type="date"],.form-group textarea{width:100%;padding:.75rem;border:1.5px solid var(--pink-light);border-radius:var(--radius-sm);font-family:'Nunito',sans-serif;font-size:1rem;transition:border-color .2s;}
-.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--pink-dark);}
-.form-group textarea{resize:vertical;min-height:120px;}
-.radio-group{display:flex;flex-direction:column;gap:.8rem;}
-.radio-group label{display:flex;align-items:center;gap:.6rem;margin-bottom:0;}
-.radio-group input[type="radio"]{width:18px;height:18px;cursor:pointer;}
-.btn{display:inline-block;padding:.72rem 1.8rem;border-radius:50px;font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:500;cursor:pointer;transition:all .22s;text-decoration:none;border:none;letter-spacing:.02em;}
-.btn-primary{background:var(--pink-dark);color:var(--white);box-shadow:0 4px 16px rgba(196,118,176,.35);}
-.btn-primary:hover{background:#b35f9f;transform:translateY(-2px);}
+  /* BANNER */
+  .page-banner{background:linear-gradient(135deg,#fdf6fb 0%,var(--beige) 55%,#f7e6f3 100%);padding:4rem 6% 3rem;position:relative;overflow:hidden;}
+  .page-banner::after{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:var(--pink-light);opacity:.4;}
+  .page-banner-inner{position:relative;z-index:1;max-width:640px;}
+  .page-tag{display:inline-block;background:var(--pink-light);color:var(--pink-dark);font-family:'Fredoka',sans-serif;font-size:.88rem;font-weight:500;padding:4px 14px;border-radius:50px;margin-bottom:.9rem;letter-spacing:.03em;}
+  .page-banner h1{font-size:clamp(2rem,4vw,3rem);font-weight:600;color:var(--charcoal);margin-bottom:.7rem;}
+  .page-banner p{font-size:1rem;color:var(--charcoal-mid);}
 
-/* FOOTER */
-footer{background:var(--charcoal);color:rgba(255,255,255,.7);padding:3.5rem 6% 2rem;position:relative;z-index:1;}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem;}
-.footer-logo{font-family:'Fredoka',sans-serif;font-size:1.35rem;font-weight:600;color:var(--pink);text-decoration:none;}
-.footer-logo span{color:var(--white);}
-.footer-tagline{font-size:.85rem;margin-top:.7rem;color:rgba(255,255,255,.45);max-width:240px;line-height:1.65;}
-.footer-col h4{font-family:'Fredoka',sans-serif;font-size:.98rem;font-weight:500;color:var(--white);margin-bottom:.9rem;}
-.footer-col ul{list-style:none;}
-.footer-col li{margin-bottom:.45rem;}
-.footer-col a{text-decoration:none;color:rgba(255,255,255,.45);font-size:.86rem;transition:color .2s;}
-.footer-col a:hover{color:var(--pink);}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.3rem;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:rgba(255,255,255,.28);}
-.social-links{display:flex;gap:.6rem;margin-top:1rem;}
-.social-btn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.07);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);font-size:.95rem;transition:all .2s;text-decoration:none;}
-.social-btn:hover{background:var(--pink-dark);color:var(--white);}
+  /* ORDER LAYOUT */
+  .order-body{padding:3.5rem 6% 4rem;}
+  .order-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:start;}
 
-@media(max-width:900px){nav{padding:0 5%;}.order-body{padding:2.5rem 5%;}.page-banner{padding:3rem 5%;}.footer-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:600px){.nav-links{display:none;}.footer-grid{grid-template-columns:1fr;}}
-    </style>
+  /* INFO SIDE */
+  .order-info-card{background:var(--white);border-radius:var(--radius);padding:2rem 1.8rem;box-shadow:var(--shadow-sm);margin-bottom:1.4rem;}
+  .order-info-card h3{font-size:1.1rem;font-weight:500;color:var(--charcoal);margin-bottom:.5rem;}
+  .order-info-card p{font-size:.88rem;color:var(--charcoal-mid);line-height:1.6;}
+  .info-icon-row{display:flex;align-items:flex-start;gap:.9rem;margin-bottom:.9rem;}
+  .info-icon{width:38px;height:38px;flex-shrink:0;border-radius:10px;background:var(--pink-light);display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+  .info-icon-row p{font-size:.88rem;color:var(--charcoal-mid);line-height:1.6;}
+
+  /* PAYMENT OPTIONS */
+  .pay-label{font-family:'Fredoka',sans-serif;font-size:.9rem;font-weight:500;color:var(--charcoal-mid);margin-bottom:.5rem;display:block;}
+  .pay-options{display:flex;flex-direction:column;gap:.5rem;}
+  .pay-opt{display:flex;align-items:center;gap:.7rem;background:var(--soft-white);border:1.5px solid var(--pink-light);border-radius:var(--radius-sm);padding:.65rem 1rem;cursor:pointer;transition:border-color .2s;font-size:.9rem;color:var(--charcoal-mid);}
+  .pay-opt:hover{border-color:var(--pink-dark);}
+  .pay-opt input{accent-color:var(--pink-dark);}
+
+  /* FORM CARD */
+  .form-card{background:var(--white);border-radius:var(--radius);padding:2.2rem 2rem;box-shadow:var(--shadow);}
+  .form-card h2{font-size:1.3rem;font-weight:500;margin-bottom:1.5rem;color:var(--charcoal);}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .form-group{margin-bottom:1rem;display:flex;flex-direction:column;}
+  .form-group label{font-family:'Fredoka',sans-serif;font-size:.88rem;font-weight:500;color:var(--charcoal-mid);margin-bottom:.3rem;}
+  .form-group input,.form-group textarea,.form-group select{padding:.65rem 1rem;border:1.5px solid #e8dfe0;border-radius:var(--radius-sm);font-family:'Nunito',sans-serif;font-size:.92rem;color:var(--charcoal);background:var(--soft-white);transition:border-color .2s;outline:none;}
+  .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--pink-dark);background:var(--white);}
+  .form-group textarea{resize:vertical;min-height:90px;}
+  .btn{display:inline-block;padding:.75rem 1.8rem;border-radius:50px;font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:500;cursor:pointer;transition:all .22s;text-decoration:none;border:none;letter-spacing:.02em;}
+  .btn-primary{background:var(--pink-dark);color:var(--white);box-shadow:0 4px 16px rgba(196,118,176,.35);}
+  .btn-primary:hover{background:#b35f9f;transform:translateY(-2px);}
+
+  /* SUCCESS MSG */
+  .success-msg{display:none;background:#e8f5e9;border:1.5px solid #a5d6a7;border-radius:var(--radius-sm);padding:1rem 1.2rem;margin-top:1rem;font-size:.9rem;color:#2e7d32;font-weight:500;}
+
+  /* FOOTER */
+  footer{background:var(--charcoal);color:rgba(255,255,255,.7);padding:3.5rem 6% 2rem;position:relative;z-index:1;}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem;}
+  .footer-logo{font-family:'Fredoka',sans-serif;font-size:1.35rem;font-weight:600;color:var(--pink);text-decoration:none;}
+  .footer-logo span{color:var(--white);}
+  .footer-tagline{font-size:.85rem;margin-top:.7rem;color:rgba(255,255,255,.45);max-width:240px;line-height:1.65;}
+  .footer-col h4{font-family:'Fredoka',sans-serif;font-size:.98rem;font-weight:500;color:var(--white);margin-bottom:.9rem;}
+  .footer-col ul{list-style:none;}
+  .footer-col li{margin-bottom:.45rem;}
+  .footer-col a{text-decoration:none;color:rgba(255,255,255,.45);font-size:.86rem;transition:color .2s;}
+  .footer-col a:hover{color:var(--pink);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.3rem;display:flex;justify-content:space-between;font-size:.8rem;color:rgba(255,255,255,.28);}
+  .social-links{display:flex;gap:.6rem;margin-top:1rem;}
+  .social-btn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.07);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);font-size:.95rem;transition:all .2s;text-decoration:none;}
+  .social-btn:hover{background:var(--pink-dark);color:var(--white);}
+
+  @media(max-width:900px){.order-grid{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr 1fr;}nav{padding:0 5%;}.order-body{padding:2.5rem 5%;}.page-banner{padding:3rem 5%;}}
+  @media(max-width:600px){.nav-links{display:none;}.footer-grid{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
+
+<!-- BEARS -->
+<div class="bg-bears" aria-hidden="true">
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#d4956a"/><circle cx="72" cy="28" r="14" fill="#d4956a"/><circle cx="28" cy="28" r="9" fill="#e8b48a"/><circle cx="72" cy="28" r="9" fill="#e8b48a"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#d4956a"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#e8b48a"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#b06040"/><path d="M45 62 Q50 67 55 62" stroke="#b06040" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#d4956a"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#e8b48a"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#b8c9e8"/><circle cx="72" cy="28" r="14" fill="#b8c9e8"/><circle cx="28" cy="28" r="9" fill="#d0dcf0"/><circle cx="72" cy="28" r="9" fill="#d0dcf0"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#b8c9e8"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#d0dcf0"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#8090c0"/><path d="M45 62 Q50 67 55 62" stroke="#8090c0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#b8c9e8"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#d0dcf0"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#b8c9e8" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#b8c9e8" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#f0b8c8"/><circle cx="72" cy="28" r="14" fill="#f0b8c8"/><circle cx="28" cy="28" r="9" fill="#f8d8e4"/><circle cx="72" cy="28" r="9" fill="#f8d8e4"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#f0b8c8"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#f8d8e4"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#c060a0"/><path d="M45 62 Q50 67 55 62" stroke="#c060a0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#f0b8c8"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#f8d8e4"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#f0b8c8" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#f0b8c8" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#c476b0" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#a03888"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#d4956a"/><circle cx="72" cy="28" r="14" fill="#d4956a"/><circle cx="28" cy="28" r="9" fill="#e8b48a"/><circle cx="72" cy="28" r="9" fill="#e8b48a"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#d4956a"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#e8b48a"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#b06040"/><path d="M45 62 Q50 67 55 62" stroke="#b06040" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#d4956a"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#e8b48a"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#b8c9e8"/><circle cx="72" cy="28" r="14" fill="#b8c9e8"/><circle cx="28" cy="28" r="9" fill="#d0dcf0"/><circle cx="72" cy="28" r="9" fill="#d0dcf0"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#b8c9e8"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#d0dcf0"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#8090c0"/><path d="M45 62 Q50 67 55 62" stroke="#8090c0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#b8c9e8"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#d0dcf0"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#b8c9e8" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#b8c9e8" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#f0b8c8"/><circle cx="72" cy="28" r="14" fill="#f0b8c8"/><circle cx="28" cy="28" r="9" fill="#f8d8e4"/><circle cx="72" cy="28" r="9" fill="#f8d8e4"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#f0b8c8"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#f8d8e4"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#c060a0"/><path d="M45 62 Q50 67 55 62" stroke="#c060a0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#f0b8c8"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#f8d8e4"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#f0b8c8" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#f0b8c8" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#c476b0" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#a03888"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#d4956a"/><circle cx="72" cy="28" r="14" fill="#d4956a"/><circle cx="28" cy="28" r="9" fill="#e8b48a"/><circle cx="72" cy="28" r="9" fill="#e8b48a"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#d4956a"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#e8b48a"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#b06040"/><path d="M45 62 Q50 67 55 62" stroke="#b06040" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#d4956a"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#e8b48a"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#b8c9e8"/><circle cx="72" cy="28" r="14" fill="#b8c9e8"/><circle cx="28" cy="28" r="9" fill="#d0dcf0"/><circle cx="72" cy="28" r="9" fill="#d0dcf0"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#b8c9e8"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#d0dcf0"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#8090c0"/><path d="M45 62 Q50 67 55 62" stroke="#8090c0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#b8c9e8"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#d0dcf0"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#b8c9e8" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#b8c9e8" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#f0b8c8"/><circle cx="72" cy="28" r="14" fill="#f0b8c8"/><circle cx="28" cy="28" r="9" fill="#f8d8e4"/><circle cx="72" cy="28" r="9" fill="#f8d8e4"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#f0b8c8"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#f8d8e4"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#c060a0"/><path d="M45 62 Q50 67 55 62" stroke="#c060a0" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#f0b8c8"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#f8d8e4"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#f0b8c8" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#f0b8c8" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#c476b0" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#a03888"/></svg></div>
+  <div class="bear"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="14" fill="#d4956a"/><circle cx="72" cy="28" r="14" fill="#d4956a"/><circle cx="28" cy="28" r="9" fill="#e8b48a"/><circle cx="72" cy="28" r="9" fill="#e8b48a"/><ellipse cx="50" cy="52" rx="32" ry="30" fill="#d4956a"/><ellipse cx="50" cy="60" rx="16" ry="12" fill="#e8b48a"/><circle cx="39" cy="46" r="5" fill="#fff"/><circle cx="61" cy="46" r="5" fill="#fff"/><circle cx="40" cy="47" r="3" fill="#263238"/><circle cx="62" cy="47" r="3" fill="#263238"/><circle cx="41" cy="46" r="1" fill="#fff"/><circle cx="63" cy="46" r="1" fill="#fff"/><ellipse cx="50" cy="57" rx="5" ry="4" fill="#b06040"/><path d="M45 62 Q50 67 55 62" stroke="#b06040" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="50" cy="97" rx="26" ry="22" fill="#d4956a"/><ellipse cx="50" cy="96" rx="15" ry="13" fill="#e8b48a"/><ellipse cx="18" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(-20 18 90)"/><ellipse cx="82" cy="90" rx="10" ry="16" fill="#d4956a" transform="rotate(20 82 90)"/><path d="M42 75 Q50 70 58 75 Q50 80 42 75Z" fill="#E4A3D4" opacity="0.9"/><circle cx="50" cy="75" r="3" fill="#c476b0"/></svg></div>
+</div>
 
 <nav>
   <a class="nav-logo" href="index.html">Sweetheart <span>Factorie</span></a>
@@ -84,6 +142,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.7);padding:3.5rem 6% 2
     <li><a href="about.html">About</a></li>
     <li><a href="catalogue.html">Catalogue</a></li>
     <li><a href="order.html" class="active">Order</a></li>
+    <li><a href="enquiry.html">Enquiry</a></li>
     <li><a href="contact.html">Contact Us</a></li>
   </ul>
   <div class="nav-actions">
@@ -95,80 +154,84 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.7);padding:3.5rem 6% 2
 <div class="page">
   <div class="page-banner">
     <div class="page-banner-inner">
-      <div class="page-tag">🛍️ Complete your order</div>
-      <h1>Place Your Order</h1>
-      <p>Fill in your details below and we'll get your precious gifts delivered to your door within 3-5 working days.</p>
+      <div class="page-tag">🛒 Place your order</div>
+      <h1>Order Page</h1>
+      <p>Fill in your details below and we'll be in touch to confirm your order. We deliver nationwide across South Africa!</p>
     </div>
   </div>
 
   <div class="order-body">
-    <form>    <form>
-      <div class="form-section">
-        <h3>Your Details</h3>
-        <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" name="fullname" required>
+    <div class="order-grid">
+
+      <!-- LEFT INFO -->
+      <div>
+        <div class="order-info-card">
+          <div class="info-icon-row"><div class="info-icon">🚚</div><div><h3>Nationwide Delivery</h3><p>We deliver to all major cities and towns across South Africa. Typically 3–5 business days.</p></div></div>
+          <div class="info-icon-row"><div class="info-icon">📦</div><div><h3>Carefully Packaged</h3><p>Every order is wrapped with love and care, ready to gift straight from the box.</p></div></div>
+          <div class="info-icon-row"><div class="info-icon">💬</div><div><h3>We'll Confirm With You</h3><p>Once you submit your order we'll contact you within 1 business day to confirm stock and payment.</p></div></div>
         </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label>Contact Number</label>
-          <input type="tel" name="contact" required>
+
+        <div class="order-info-card">
+          <h3 style="margin-bottom:1rem;">💳 Choose Payment Method</h3>
+          <div class="pay-options">
+            <label class="pay-opt"><input type="radio" name="pay" checked> 💳 Payflex / Pay Just Now</label>
+            <label class="pay-opt"><input type="radio" name="pay"> 🎟️ Voucher Code</label>
+            <label class="pay-opt"><input type="radio" name="pay"> 🏦 Debit / Credit Card</label>
+          </div>
         </div>
       </div>
 
-      <div class="form-section">
-        <h3>Delivery Information</h3>
-        <p style="color:var(--charcoal-mid);margin-bottom:1.5rem;"><strong>Free Delivery:</strong> On orders above R500 • <strong>Delivery Time:</strong> 3-5 working days</p>
+      <!-- RIGHT FORM -->
+      <div class="form-card">
+        <h2>📋 Order Details</h2>
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane"></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Dlamini"></div>
+        </div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="jane@example.com"></div>
+        <div class="form-row">
+          <div class="form-group"><label>Contact Number</label><input type="tel" placeholder="071 234 5678"></div>
+          <div class="form-group"><label>Estimated Delivery Date</label><input type="date"></div>
+        </div>
         <div class="form-group">
-          <label>Preferred Delivery Date</label>
-          <input type="date" name="delivery" required>
+          <label>Product / Gift Set</label>
+          <select>
+            <option value="">Select a product…</option>
+            <option>Newborn Deluxe Gift Set</option>
+            <option>Butterfly Crib Set</option>
+            <option>Plush Teddy Bear</option>
+            <option>Musical Activity Gym</option>
+            <option>Deluxe Pram Pro</option>
+            <option>Travel Cot</option>
+            <option>Pram + Cot Bundle</option>
+            <option>Build My Own Pack</option>
+          </select>
         </div>
+        <div class="form-group"><label>Delivery Address</label><input type="text" placeholder="123 Main Street, Johannesburg"></div>
+        <div class="form-group"><label>Any Special Instructions</label><textarea placeholder="Gift message, custom requests, allergies…"></textarea></div>
+        <button class="btn btn-primary" style="width:100%;" onclick="submitOrder()">Submit Order 💌</button>
+        <div class="success-msg" id="successMsg">✅ Thank you! Your order has been received. We'll be in touch within 1 business day.</div>
       </div>
 
-      <div class="form-section">
-        <h3>Payment Method</h3>
-        <div class="form-group radio-group">
-          <label>
-            <input type="radio" name="payment" value="payfast" required>
-            PayFlex / Pay Just Now
-          </label>
-          <label>
-            <input type="radio" name="payment" value="voucher">
-            Voucher
-          </label>
-          <label>
-            <input type="radio" name="payment" value="card">
-            Debit / Credit Card
-          </label>
-        </div>
-      </div>
-
-      <div class="form-section">
-        <h3>Special Instructions</h3>
-        <div class="form-group">
-          <label>Any special requests or gift messages</label>
-          <textarea name="instructions" placeholder="e.g., Please wrap as a gift, add a personal note, etc."></textarea>
-        </div>
-      </div>
-
-      <div style="text-align:center;">
-        <button type="submit" class="btn btn-primary">Complete Order 💌</button>
-      </div>
-    </form>
+    </div>
   </div>
 </div>
 
 <footer>
   <div class="footer-grid">
     <div><a class="footer-logo" href="index.html">Sweetheart <span>Factorie</span></a><p class="footer-tagline">High quality, budget-friendly gifts for new mothers and toddlers. Delivered with love, nationwide.</p><div class="social-links"><a class="social-btn" href="#">📘</a><a class="social-btn" href="#">📸</a><a class="social-btn" href="#">🐦</a></div></div>
-    <div class="footer-col"><h4>Shop</h4><ul><li><a href="#">Nursery Stuff</a></li><li><a href="#">Toys</a></li><li><a href="#">Cots &amp; Prams</a></li><li><a href="#">Gift Sets</a></li></ul></div>
-    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="about.html">Our Team</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div class="footer-col"><h4>Help</h4><ul><li><a href="#">Delivery Info</a></li><li><a href="#">Returns</a></li><li><a href="#">FAQ</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+    <div class="footer-col"><h4>Shop</h4><ul><li><a href="catalogue.html">Nursery Stuff</a></li><li><a href="catalogue.html">Toys</a></li><li><a href="catalogue.html">Cots &amp; Prams</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Help</h4><ul><li><a href="#">Delivery Info</a></li><li><a href="#">Returns</a></li><li><a href="#">FAQ</a></li></ul></div>
   </div>
   <div class="footer-bottom"><span>© 2026 Sweetheart Factorie. All rights reserved.</span><span>Made with 💕 for mommies everywhere.</span></div>
 </footer>
+
+<script>
+function submitOrder(){
+  document.getElementById('successMsg').style.display='block';
+  window.scrollTo({top:document.getElementById('successMsg').offsetTop-100,behavior:'smooth'});
+}
+</script>
 </body>
 </html>
