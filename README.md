@@ -59,6 +59,15 @@ The success of the website will be measured using:
 - Product catalog
 -Contact page
 
+## Technologies Used
+
+HTML
+CSS
+JavaScript
+GitHub
+GitHub Pages
+Google Maps
+
 # Website Overview
 
 The Sweetheart Factorie website consists of five main sections, each designed to meet specific customer needs and enhance the overall user experience.
@@ -99,59 +108,6 @@ Communication Tools
 The website includes contact forms that allow customers to submit enquiries directly. Social media integration also connects visitors to Sweetheart Factorie’s broader online presence and engagement channels.
 
 # Changelog
-
-## [1.0.1] - 2026-06-19
-
-### Fixed
-- **Git Merge Conflicts Resolution**
-  - Resolved merge conflicts in `contact.html` (CSS and footer sections)
-  - Resolved merge conflicts in `order.html` (CSS styling)
-  - Resolved merge conflicts in `about.html` (whitespace in section markup)
-  - Resolved merge conflicts in `index.html` (CSS styling)
-
-- **CSS & Styling**
-  - Cleaned up duplicate and conflicting CSS rules across all page files
-  - Ensured consistent styling for navigation, forms, and footer components
-  - Fixed banner, footer grid, and responsive layout declarations
-
-- **HTML Structure**
-  - Verified and corrected footer markup on contact and order pages
-  - Ensured proper closure of HTML tags and structure
-  - Validated form elements and FAQs
-
-### Verified
-- ✅ All pages render without errors
-- ✅ Form validation logic functioning (contact form, order form)
-- ✅ FAQ accordion functionality operational
-- ✅ Cart management system working correctly
-- ✅ Responsive design intact across all breakpoints
-- ✅ Navigation links consistent across all pages
-- ✅ SEO meta tags present on all pages
-
-### Technical Details
-- **Branch**: main
-- **Reviewed Files**: 5 HTML files, 1 CSS file, 1 JavaScript file
-- **Build Status**: All merge conflicts resolved ✅
-- **Testing**: Code review completed, no syntax errors
-
----
-
-## [1.0.0] - 2026-01-30
-
-### Initial Release
-- Launched Sweetheart Factorie website with core functionality
-- Implemented responsive design for mobile, tablet, and desktop
-- Created product catalog with search and filter capabilities
-- Built contact and order pages with form validation
-- Added FAQ accordion on contact page
-- Implemented cart system with localStorage persistence
-- Designed animated background elements (floating bears)
-- Integrated Google Fonts (Fredoka, Nunito)
-- Added social media links and footer navigation
-- Implemented mobile hamburger menu support
-User Experience Optimisation
-
-The website prioritises simplicity, accessibility, and efficiency. Users can quickly access menu information and complete orders with minimal clicks. The design maintains consistent branding, high colour contrast for readability, and an intuitive navigation structure throughout all pages.
 
 
 # Design & User Experience
@@ -230,6 +186,39 @@ Phase 4: Navigation and User Experience Enhancements
 phase 5:
 Submitted on the 29th of May
 
+Part 3:
+This final phase focused on implementing advanced JavaScript functionality, interactive features, and comprehensive enhancements to create a fully functional, user-friendly website experience.
+
+- Implemented shopping cart functionality with local storage persistence
+- Created dynamic menu loading system using JSON data file
+-Added accessible menu category tabs with keyboard navigation (Arrow keys)
+-Implemented menu search functionality with debounced input and ARIA live regions
+-Enhanced gallery lightbox with next/previous navigation, ESC key, and swipe support
+-Created contact form with comprehensive validation (email, phone, required fields)
+-Implemented smooth scroll animations for enhanced user experience
+-Added category accordions for collapsible menu sections
+
+## SEO Optimisation
+The website has been optimised through:
+
+Title Tags
+Meta Description Tags
+Meta Keywords Tags
+Descriptive Image File Names
+Alternative Text (Alt Text) for Images
+Structured Headings
+
+## Interactive Features
+
+Shopping Cart System
+Add to Cart Buttons
+Dynamic Cart Updates
+Dynamic Welcome Message
+Gallery Lightbox
+Contact Form Validation
+Enquiry Form Validation
+Confirmation Messages
+Responsive Navigation
 
 # SITEMAP /project structure
 
@@ -260,7 +249,7 @@ Submitted on the 29th of May
     <!-- Copyright -->
 </footer>
 
-# changelog:
+### changelog:
 - Initial project setup
 - Home page structure
 - About page structure
@@ -304,6 +293,56 @@ Submitted on the 29th of May
 -Added wireframe-based page layouts
 -Planned mobile-friendly interface
 
+ ## Part 3 (03june -19 june)
+
+
+- **Git Merge Conflicts Resolution**
+  - Resolved merge conflicts in `contact.html` (CSS and footer sections)
+  - Resolved merge conflicts in `order.html` (CSS styling)
+  - Resolved merge conflicts in `about.html` (whitespace in section markup)
+  - Resolved merge conflicts in `index.html` (CSS styling)
+
+- **CSS & Styling**
+  - Cleaned up duplicate and conflicting CSS rules across all page files
+  - Ensured consistent styling for navigation, forms, and footer components
+  - Fixed banner, footer grid, and responsive layout declarations
+
+- **HTML Structure**
+  - Verified and corrected footer markup on contact and order pages
+  - Ensured proper closure of HTML tags and structure
+  - Validated form elements and FAQs
+
+### Verified
+- All pages render without errors
+- Form validation logic functioning (contact form, order form)
+-  FAQ accordion functionality operational
+-  Cart management system working correctly
+-  Responsive design intact across all breakpoints
+- Navigation links consistent across all pages
+-  SEO meta tags present on all pages
+
+### Technical Details
+- **Branch**: main
+- **Reviewed Files**: 5 HTML files, 1 CSS file, 1 JavaScript file
+- **Build Status**: All merge conflicts resolved 
+- **Testing**: Code review completed, no syntax errors
+
+### Initial Release
+- Launched Sweetheart Factorie website with core functionality
+- Implemented responsive design for mobile, tablet, and desktop
+- Created product catalog with search and filter capabilities
+- Built contact and order pages with form validation
+- Added FAQ accordion on contact page
+- Implemented cart system with localStorage persistence
+- Designed animated background elements (floating bears)
+- Integrated Google Fonts (Fredoka, Nunito)
+- Added social media links and footer navigation
+- Implemented mobile hamburger menu support
+User Experience Optimisation
+
+The website prioritises simplicity, accessibility, and efficiency. Users can quickly access menu information and complete orders with minimal clicks. The design maintains consistent branding, high colour contrast for readability, and an intuitive navigation structure throughout all pages.
+
+
 # Responsiveness testing iteration across devices
 
 # laptop and desktop
@@ -313,6 +352,9 @@ Submitted on the 29th of May
 # Mobile
 <img width="585" height="1266" alt="IMG_5940" src="https://github.com/user-attachments/assets/1f584604-4d1b-46f2-890e-9bec3ac3a561" />
 
+
+## LIVE WEBSITE 
+https://sweet-heart-factorie.netlify.app/
 
 
 # Reference list: 
