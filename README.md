@@ -66,7 +66,7 @@ CSS
 JavaScript
 GitHub
 GitHub Pages
-Google Maps
+
 
 # Website Overview
 
